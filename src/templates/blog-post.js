@@ -1,17 +1,18 @@
-import React from 'react'
-import Link from 'gatsby-link'
-import Helmet from 'react-helmet'
+import React from 'react';
+import Link from 'gatsby-link';
+import Helmet from 'react-helmet';
+import AllTags from './all-tags';
 
 const Template = ({data, location, pathContext}) => {
   const { markdownRemark: post } = data
   const { frontmatter, html } = post
-  const { title, date } = frontmatter
+  const { title, date, tags } = frontmatter
   const { next, prev } = pathContext
 
+  // {tags && <AllTags tags={tags} />}
   return (
     <div>
       <Helmet title={`${frontmatter.title} - My Blog`} />
-
       <div>
         <h1>{title}</h1>
         <h3>{date}</h3>
@@ -51,5 +52,6 @@ export const pageQuery = graphql`
     }
   }
 `
+
 
 export default Template
