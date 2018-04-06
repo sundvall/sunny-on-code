@@ -1,5 +1,5 @@
 module.exports = {
-    pathPrefix: `/sunny-on-code`,
+    pathPrefix: `sunny-on-code`,
   siteMetadata: {
     title: `Gatsby Default Starter`,
   },
