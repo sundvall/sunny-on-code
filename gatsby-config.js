@@ -1,5 +1,5 @@
 module.exports = {
-    pathPrefix: `the-tech-notes`,
+    pathPrefix: `/sunny-on-code`,
   siteMetadata: {
     title: `Gatsby Default Starter`,
   },
