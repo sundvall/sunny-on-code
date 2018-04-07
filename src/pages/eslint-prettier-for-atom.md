@@ -1,12 +1,12 @@
 ---
 path: "/eslint-prettier-for-atom"
 date: "2018-04-06"
-title: "Eslint and prettier setup for Atom"
-tags: ['how to', 'eslint', 'atom']
+title: "Lint and format for Atom"
+tags: ['how-to', 'eslint', 'atom', 'tools']
 excerpt: "Code formatting combined with lint-rules in atom works fine, but appear to require a new setup for each project. Here is how it is done."
 ---
 
-# Code assistance and styling
+# Eslint and prettier setup for Atom
 Atom Code-editor for javascript works well together with eslint configuration. Some shortkeys to formatting simplifies the daily work, and unifies the style with other developers. When starting a new project, it'd be nice if a default configuration could be used, to speed up an initial testround in new code. Since this is not the case, here is the instruction.
 
 ##  files and current versions to update ...
@@ -138,5 +138,5 @@ That will require some of these in "package.json":
  ```
  https://github.com/babel/babel-eslint
  ### links
- eslintrc configuration 
+ eslintrc configuration
  https://eslint.org/docs/user-guide/configuring
