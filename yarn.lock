@@ -1588,6 +1588,13 @@ buffer@^4.3.0, buffer@^4.9.0:
     ieee754 "^1.1.4"
     isarray "^1.0.0"
 
+buffer@^5.0.3:
+  version "5.1.0"
+  resolved "https://registry.npmjs.org/buffer/-/buffer-5.1.0.tgz#c913e43678c7cb7c8bd16afbcddb6c5505e8f9fe"
+  dependencies:
+    base64-js "^1.0.2"
+    ieee754 "^1.1.4"
+
 builtin-modules@^1.0.0, builtin-modules@^1.1.1:
   version "1.1.1"
   resolved "https://registry.npmjs.org/builtin-modules/-/builtin-modules-1.1.1.tgz#270f076c5a72c02f5b65a47df94c5fe3a278892f"
@@ -1813,6 +1820,14 @@ class-utils@^0.3.5:
     define-property "^0.2.5"
     isobject "^3.0.0"
     static-extend "^0.1.1"
+
+clean-tag@^1.0.3:
+  version "1.0.4"
+  resolved "https://registry.npmjs.org/clean-tag/-/clean-tag-1.0.4.tgz#9b407b306fadce114e6dffa774e7b61bdfc0c190"
+  dependencies:
+    html-tags "^2.0.0"
+    react ">=16.0.0"
+    styled-system ">=1.1 || >=2.0"
 
 cli-boxes@^1.0.0:
   version "1.0.0"
@@ -2237,6 +2252,10 @@ css-color-function@^1.2.0:
     debug "^3.1.0"
     rgb "~0.1.0"
 
+css-color-keywords@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.npmjs.org/css-color-keywords/-/css-color-keywords-1.0.0.tgz#fea2616dc676b2962686b3af8dbdbe180b244e05"
+
 css-color-names@0.0.4:
   version "0.0.4"
   resolved "https://registry.npmjs.org/css-color-names/-/css-color-names-0.0.4.tgz#808adc2e79cf84738069b646cb20ec27beb629e0"
@@ -2278,6 +2297,14 @@ css-selector-tokenizer@^0.7.0:
     cssesc "^0.1.0"
     fastparse "^1.1.1"
     regexpu-core "^1.0.0"
+
+css-to-react-native@^2.0.3:
+  version "2.1.2"
+  resolved "https://registry.npmjs.org/css-to-react-native/-/css-to-react-native-2.1.2.tgz#c06d628467ef961c85ec358a90f3c87469fb0095"
+  dependencies:
+    css-color-keywords "^1.0.0"
+    fbjs "^0.8.5"
+    postcss-value-parser "^3.3.0"
 
 css-what@2.1:
   version "2.1.0"
@@ -3286,7 +3313,7 @@ fb-watchman@^2.0.0:
   dependencies:
     bser "^2.0.0"
 
-fbjs@^0.8.14, fbjs@^0.8.16, fbjs@^0.8.9:
+fbjs@^0.8.14, fbjs@^0.8.16, fbjs@^0.8.5, fbjs@^0.8.9:
   version "0.8.16"
   resolved "https://registry.npmjs.org/fbjs/-/fbjs-0.8.16.tgz#5e67432f550dc41b572bf55847b8aca64e5337db"
   dependencies:
@@ -3622,6 +3649,12 @@ gatsby-module-loader@^1.0.11:
 gatsby-plugin-react-helmet@^2.0.8:
   version "2.0.10"
   resolved "https://registry.npmjs.org/gatsby-plugin-react-helmet/-/gatsby-plugin-react-helmet-2.0.10.tgz#8eddb40ebbb03f334c119f40112b020325706735"
+  dependencies:
+    babel-runtime "^6.26.0"
+
+gatsby-plugin-styled-components@^2.0.11:
+  version "2.0.11"
+  resolved "https://registry.npmjs.org/gatsby-plugin-styled-components/-/gatsby-plugin-styled-components-2.0.11.tgz#c3d3438c7970bbcc116e821fb966687098bdaf57"
   dependencies:
     babel-runtime "^6.26.0"
 
@@ -4075,6 +4108,14 @@ gray-percentage@^2.0.0:
   version "2.0.0"
   resolved "https://registry.npmjs.org/gray-percentage/-/gray-percentage-2.0.0.tgz#b72a274d1b1379104a0050b63b207dc53fe56f99"
 
+grid-styled@^3.2.1:
+  version "3.2.1"
+  resolved "https://registry.npmjs.org/grid-styled/-/grid-styled-3.2.1.tgz#dbd27e30a1db55b23e405a52356d21a30974c285"
+  dependencies:
+    clean-tag "^1.0.3"
+    styled-components ">=2.0 || >=3.0"
+    styled-system ">=2.0.2"
+
 gzip-size@3.0.0:
   version "3.0.0"
   resolved "https://registry.npmjs.org/gzip-size/-/gzip-size-3.0.0.tgz#546188e9bdc337f673772f81660464b389dce520"
@@ -4333,7 +4374,7 @@ hoek@4.x.x:
   version "4.2.1"
   resolved "https://registry.npmjs.org/hoek/-/hoek-4.2.1.tgz#9634502aa12c445dd5a7c5734b572bb8738aacbb"
 
-hoist-non-react-statics@^2.3.0:
+hoist-non-react-statics@^2.3.0, hoist-non-react-statics@^2.5.0:
   version "2.5.0"
   resolved "https://registry.npmjs.org/hoist-non-react-statics/-/hoist-non-react-statics-2.5.0.tgz#d2ca2dfc19c5a91c5a6615ce8e564ef0347e2a40"
 
@@ -4361,6 +4402,10 @@ html-comment-regex@^1.1.0:
 html-entities@^1.2.0:
   version "1.2.1"
   resolved "https://registry.npmjs.org/html-entities/-/html-entities-1.2.1.tgz#0df29351f0721163515dfb9e5543e5f6eed5162f"
+
+html-tags@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.npmjs.org/html-tags/-/html-tags-2.0.0.tgz#10b30a386085f43cede353cc8fa7cb0deeea668b"
 
 html-void-elements@^1.0.0, html-void-elements@^1.0.1:
   version "1.0.2"
@@ -7063,7 +7108,7 @@ promise@^7.1.1:
   dependencies:
     asap "~2.0.3"
 
-prop-types@^15.5.10, prop-types@^15.5.4, prop-types@^15.5.8, prop-types@^15.6.0:
+prop-types@^15.5.10, prop-types@^15.5.4, prop-types@^15.5.6, prop-types@^15.5.8, prop-types@^15.6.0:
   version "15.6.1"
   resolved "https://registry.npmjs.org/prop-types/-/prop-types-15.6.1.tgz#36644453564255ddda391191fb3a125cbdf654ca"
   dependencies:
@@ -7249,6 +7294,12 @@ react-error-overlay@^3.0.0:
   version "3.0.0"
   resolved "https://registry.npmjs.org/react-error-overlay/-/react-error-overlay-3.0.0.tgz#c2bc8f4d91f1375b3dad6d75265d51cd5eeaf655"
 
+react-fontawesome@^1.6.1:
+  version "1.6.1"
+  resolved "https://registry.npmjs.org/react-fontawesome/-/react-fontawesome-1.6.1.tgz#eddce17e7dc731aa09fd4a186688a61793a16c5c"
+  dependencies:
+    prop-types "^15.5.6"
+
 react-helmet@^5.2.0:
   version "5.2.0"
   resolved "https://registry.npmjs.org/react-helmet/-/react-helmet-5.2.0.tgz#a81811df21313a6d55c5f058c4aeba5d6f3d97a7"
@@ -7308,6 +7359,15 @@ react-typography@^0.16.1:
   version "0.16.13"
   resolved "https://registry.npmjs.org/react-typography/-/react-typography-0.16.13.tgz#94bdd2a9448823bc74d8ebf7465d86c7dbe20dcf"
 
+react@>=16.0.0, react@^16.3.1:
+  version "16.3.1"
+  resolved "https://registry.npmjs.org/react/-/react-16.3.1.tgz#4a2da433d471251c69b6033ada30e2ed1202cfd8"
+  dependencies:
+    fbjs "^0.8.16"
+    loose-envify "^1.1.0"
+    object-assign "^4.1.1"
+    prop-types "^15.6.0"
+
 react@^15.6.0:
   version "15.6.2"
   resolved "https://registry.npmjs.org/react/-/react-15.6.2.tgz#dba0434ab439cfe82f108f0f511663908179aa72"
@@ -7317,15 +7377,6 @@ react@^15.6.0:
     loose-envify "^1.1.0"
     object-assign "^4.1.0"
     prop-types "^15.5.10"
-
-react@^16.3.1:
-  version "16.3.1"
-  resolved "https://registry.npmjs.org/react/-/react-16.3.1.tgz#4a2da433d471251c69b6033ada30e2ed1202cfd8"
-  dependencies:
-    fbjs "^0.8.16"
-    loose-envify "^1.1.0"
-    object-assign "^4.1.1"
-    prop-types "^15.6.0"
 
 read-cache@^1.0.0:
   version "1.0.0"
@@ -8598,6 +8649,34 @@ style-loader@^0.13.0:
   resolved "https://registry.npmjs.org/style-loader/-/style-loader-0.13.2.tgz#74533384cf698c7104c7951150b49717adc2f3bb"
   dependencies:
     loader-utils "^1.0.2"
+
+"styled-components@>=2.0 || >=3.0", styled-components@^3.2.5:
+  version "3.2.5"
+  resolved "https://registry.npmjs.org/styled-components/-/styled-components-3.2.5.tgz#b5d5d7d618ab240ff10602b5ca5886b8db3d0a0d"
+  dependencies:
+    buffer "^5.0.3"
+    css-to-react-native "^2.0.3"
+    fbjs "^0.8.16"
+    hoist-non-react-statics "^2.5.0"
+    is-plain-object "^2.0.1"
+    prop-types "^15.5.4"
+    stylis "^3.5.0"
+    stylis-rule-sheet "^0.0.10"
+    supports-color "^3.2.3"
+
+"styled-system@>=1.1 || >=2.0", styled-system@>=2.0.2:
+  version "2.2.1"
+  resolved "https://registry.npmjs.org/styled-system/-/styled-system-2.2.1.tgz#2b0a486917037934dd7451eebe2e7fd5d1a1c58f"
+  dependencies:
+    prop-types "^15.6.0"
+
+stylis-rule-sheet@^0.0.10:
+  version "0.0.10"
+  resolved "https://registry.npmjs.org/stylis-rule-sheet/-/stylis-rule-sheet-0.0.10.tgz#44e64a2b076643f4b52e5ff71efc04d8c3c4a430"
+
+stylis@^3.5.0:
+  version "3.5.0"
+  resolved "https://registry.npmjs.org/stylis/-/stylis-3.5.0.tgz#016fa239663d77f868fef5b67cf201c4b7c701e1"
 
 supports-color@^2.0.0:
   version "2.0.0"
