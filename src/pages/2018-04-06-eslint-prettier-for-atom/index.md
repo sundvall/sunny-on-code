@@ -16,6 +16,7 @@ prettier-atom 0.53.0 - the Atom package
 Eslint 4.19.1 - the npm package togehter with a list of other packages depending on the configuration of the project.
 .eslintrc  
 .editorconfig  
+.prettierrc - remove from project since it might conflict eslint rules  
 
 ### install ESlint and set of ESLint rules to the project
 yarn add --dev eslint eslint-config-airbnb  
@@ -136,3 +137,6 @@ That will require some of these in "package.json":
  }
  ```
  https://github.com/babel/babel-eslint
+ ### links
+ eslintrc configuration 
+ https://eslint.org/docs/user-guide/configuring
