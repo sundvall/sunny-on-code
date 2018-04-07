@@ -1,7 +1,9 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import Link from 'gatsby-link'
-import Helmet from 'react-helmet'
+/* eslint-disable import/extensions*/
+import React from 'react';
+// import PropTypes from 'prop-types'
+import Link from 'gatsby-link';
+import Helmet from 'react-helmet';
+/* eslint-enable import/extensions*/
 
 // import './index.css'
 
@@ -9,14 +11,14 @@ const Header = () => (
 	<div
 		style={{
 			background: 'rebeccapurple',
-			marginBottom: '1.45rem',
+			marginBottom: '1.45rem'
 		}}
 	>
 		<div
 			style={{
 				margin: '0 auto',
 				maxWidth: 960,
-				padding: '1.45rem 1.0875rem',
+				padding: '1.45rem 1.0875rem'
 			}}
 		>
 			<h1 style={{ margin: 0 }}>
@@ -24,7 +26,7 @@ const Header = () => (
 					to="/"
 					style={{
 						color: 'white',
-						textDecoration: 'none',
+						textDecoration: 'none'
 					}}
 				>
 					Sunny on code.
@@ -32,7 +34,7 @@ const Header = () => (
 			</h1>
 		</div>
 	</div>
-)
+);
 
 const Footer = ({ title }) => (
 	<div>
@@ -43,7 +45,7 @@ const Footer = ({ title }) => (
 		<Link to="/">link to home</Link>
 		<div> Martin Sundvall </div>
 	</div>
-)
+);
 
 const TemplateWrapper = ({ children }) => (
 	<div>
@@ -51,7 +53,7 @@ const TemplateWrapper = ({ children }) => (
 			title="Gatsby Default Starter"
 			meta={[
 				{ name: 'description', content: 'Sample' },
-				{ name: 'keywords', content: 'sample, something' },
+				{ name: 'keywords', content: 'sample, something' }
 			]}
 		/>
 		<Header />
@@ -60,17 +62,17 @@ const TemplateWrapper = ({ children }) => (
 				margin: '0 auto',
 				maxWidth: 960,
 				padding: '0px 1.0875rem 1.45rem',
-				paddingTop: 0,
+				paddingTop: 0
 			}}
 		>
 			{children()}
 		</div>
 		<Footer title="the footer" />
 	</div>
-)
+);
 
-TemplateWrapper.propTypes = {
-	children: PropTypes.func,
-}
+// TemplateWrapper.propTypes = {
+// 	children: PropTypes.func,
+// }
 
-export default TemplateWrapper
+export default TemplateWrapper;
