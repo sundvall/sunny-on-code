@@ -14,25 +14,24 @@ på urlen som angetts i toppen på .md-filen.
 const Tags = ({ pathContext }) => {
 	const { posts, tagName } = pathContext;
 
-	if (posts) {
-		return (
-			<div>
-				<span>Posts about {tagName}:</span>
+	if (!posts) return null;
+	return (
+		<div>
+			<span>Posts about {tagName}:</span>
 
-				<ul>
-					{posts.map(post => {
-						return (
-							<li key={post.id}>
-								<Link to={post.frontmatter.path}>
-									{post.frontmatter.title}
-								</Link>
-							</li>
-						);
-					})}
-				</ul>
-			</div>
-		);
-	}
+			<ul>
+				{posts.map(post => {
+					return (
+						<li key={post.id}>
+							<Link to={post.frontmatter.path}>
+								{post.frontmatter.title}
+							</Link>
+						</li>
+					);
+				})}
+			</ul>
+		</div>
+	);
 };
 
 export default Tags;
