@@ -2,7 +2,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Link from 'gatsby-link';
-// import TimeAgo from 'react-timeago';
+import TimeAgo from 'react-timeago';
 import { Flex, Box } from 'grid-styled';
 /* eslint-enable import/extensions*/
 import Breadcrumb from '../components/breadcrumb.js';
@@ -61,14 +61,16 @@ const Title = styled.h1`
 	color: #fff;
 `;
 
-// const Timestamp = styled.i`
-// 	float: right;
-// `;
+const Timestamp = styled.i`
+	float: left;
+`;
 
 const TimeToRead = styled.h5`
 	text-transform: uppercase;
 	margin-top: 0.5em;
+    margin-right: 0.5em;
 	display: inline-block;
+    float:left;
 `;
 
 export default p => {
@@ -78,9 +80,9 @@ export default p => {
 	const { tagLinkPrefix } = pathContext;
 	const crumbs = [
 		{ name: 'home', link: '/' },
-		{ name: 'posts', link: '/#posts' },
-		{ name: 'about', link: '/about' },
-		{ name: 'tags', link: `/${tagLinkPrefix}` },
+		// { name: 'posts', link: '/#posts' },
+		// { name: 'about', link: '/about' },
+		// { name: 'tags', link: `/${tagLinkPrefix}` },
 		{ name: post.frontmatter.title, link: location.pathname }
 	];
 	const tags = post.frontmatter.tags.map(tag => {
@@ -108,7 +110,10 @@ export default p => {
 			</Header>
 			<Content>
 				<TimeToRead>{post.timeToRead} min read</TimeToRead>
-				<Tags>{tags}</Tags>
+				<Timestamp>
+					Posted: <TimeAgo date={post.frontmatter.date} />
+				</Timestamp>
+                <Tags>{tags}</Tags>
 				<Bar />
 				<div dangerouslySetInnerHTML={{ __html: post.html }} />
 			</Content>

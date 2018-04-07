@@ -1,6 +1,8 @@
+/* eslint-disable import/extensions*/
 import React from 'react';
 import styled, { css } from 'styled-components';
 import Link from 'gatsby-link';
+/* eslint-enable import/extensions*/
 
 const Base = styled.ol`
 	padding-top: 10px;
@@ -24,7 +26,7 @@ const Base = styled.ol`
 	& > li + li:before {
 		padding: 0 8px;
 		color: #ccc;
-		content: ' ';
+		content: '/';
 	}
 	& > li:last-child > a {
 		color: #777;
@@ -44,17 +46,15 @@ const Base = styled.ol`
 		`};
 `;
 
-class Breadcrumb extends React.Component {
-	render() {
-		const crumbs = this.props.crumbs.map(crumb => {
-			return (
-				<li key={crumb.name}>
-					<Link to={crumb.link}>{crumb.name}</Link>
-				</li>
-			);
-		});
-		return <Base {...this.props}>{crumbs}</Base>;
-	}
-}
+const Breadcrumb = ({ crumbs, ...rest }) => {
+	const crumbsArr = crumbs.map(crumb => {
+		return (
+			<li key={crumb.name}>
+				<Link to={crumb.link}>{crumb.name}</Link>
+			</li>
+		);
+	});
+	return <Base {...rest}>{crumbsArr}</Base>;
+};
 
 export default Breadcrumb;
