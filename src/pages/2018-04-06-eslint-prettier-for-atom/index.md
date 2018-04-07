@@ -1,0 +1,122 @@
+---
+path: "/eslint-prettier-for-atom"
+date: "2018-04-06"
+title: "Eslint and prettier setup for Atom"
+tags: ['how to', 'eslint', 'atom']
+excerpt: "Code formatting combined with lint-rules in atom works fine, but appear to require a new setup for each project. Here is how it is done."
+---
+
+# Code assistance and styling 
+Atom Code-editor for javascript works well together with eslint configuration. Some shortkeys to formatting simplifies the daily work, and unifies the style with other developers. When starting a new project, it'd be nice if a default configuration could be used, to speed up an initial testround in new code. Since this is not the case, here is the instruction.
+
+##  current versions...
+Atom 1.25.1  
+linter-eslint version 8.5.1 - the Atom package
+prettier-atom 0.53.0 - the Atom package
+Eslint 4.19.1 - the npm package
+
+### install ESlint and set of ESLint rules to the project
+yarn add --dev eslint-config-airbnb
+or  
+npm install --save-dev eslint-config-airbnb  
+This will create the node_modules/eslint-config-airbnb
+
+### use package "linter-eslint" for atom and point to the rules
+https://atom.io/packages/linter-eslint  
+settings: ESLint Rules Directories  
+Set the path like '...node_modules/eslint-config-airbnb'
+### first error: 'Error while running ESLint: No ESLint configuration found..'
+Add an .eslintrc.js to the project.(may also be called '.eslintrc' without the 'js' extension.) It will be picked up by the linter.  
+It may look like this:
+```javascript
+module.exports = {
+    "extends": ["airbnb","prettier","prettier/react"],
+    "env": {
+        "es6": true,
+        "browser": true,
+        "jest": true,
+        "node": true
+    },
+    "rules": {
+        "no-console": 0,
+        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+        "react/prop-types": 0,
+        "import/extensions": 0
+    },
+	"plugins": [
+		"react",
+		"prettier",
+		"jsx-a11y"
+	]
+};
+```
+### use package "prettier-atom" for autoformatting and connect to eslint
+prettier-atom
+https://atom.io/packages/prettier-atom  
+## Connect it to eslint to apply all formatting rules.
+In the "settings" section, checkmark "ESLintIntegration".
+## Connect it to the editor configuration...
+...to be able to apply your favourite indentation without conflicting other developers preferred style.  
+In the "settings" section, checkmark "EditorConfig Integration".
+## Ignore files to prettify
+In the "settings" section, checkmark "Ignore Files in .eslintignore". Might be that this setting is mostly important if "prettify on save" is selected. (Will it otherwise go through one billion files in node_modules?)
+## Other
+Checkmark other settings of preference, "single quotes", "bracket spacing", "semicolons", "coffee", ...
+...and probably adjust 'Tab Width' to something like 4.
+Also evaluate the possibility to switch order of running eslint before prettier.
+## Keybinding
+Now, the best feature: Enable keybinding to the command 'prettier:format' with selector 'atom-text-editor' and then all spaghetti will be straight again, automatically and in harmony with lint-rules.
+
+### errors: 'Error while running ESLint: Cannot find module ...
+Was any of the packages not installed? Check the setup in "".eslintrc" for the project so that it matches 'package.json'. Especially the properties "plugins" and "extends".
+```
+"plugins": [
+    "react",
+    "prettier",
+    "jsx-a11y"
+]
+```
+and
+```
+"extends": ["airbnb", "plugin:react/recommended", "prettier", "prettier/react"],
+```
+That will require some of these in "package.json":
+```
+"eslint": "^4.16.0",
+"eslint-config-airbnb": "^16.1.0",
+"eslint-config-prettier": "^2.9.0",
+"eslint-plugin-jsx-a11y": "^6.0.3",
+"eslint-plugin-import": "^2.8.0",
+"eslint-plugin-prettier": "^2.6.0",
+"eslint-plugin-react": "^7.5.1",'
+"eslint-config-standard": "^10.2.1",
+"eslint-plugin-node": "^5.2.0",
+"eslint-plugin-promise": "^3.5.0",
+"eslint-plugin-standard": "^3.0.1"
+```
+ Forgotten? Add them to the project and use the linter again. Can be of interest to reload atom packages with (ctrl+alt+cmd+L)
+ ```
+ yarn add --dev eslint
+ yarn add --dev eslint-config-prettie
+ yarn add --dev eslint-plugin-prettier  
+ yarn add --dev eslint-plugin-react  
+ yarn add --dev eslint-plugin-import
+ yarn add --dev eslint-config-airbnb   
+ ```
+ ### Other errors and settings
+ The possibilities to configure these tools are vast. Some lint-rules might not be working if they are experimental, for example, and the solution can be to parse the code through babel before applying the linter.
+ .eslintrc will have something like this:
+ ```
+ "parser": "babel-eslint",
+ "parserOptions": {
+     "ecmaVersion": 2017,
+     "sourceType": "module",
+     "ecmaFeatures": {
+         "jsx": true,
+         "modules": true,
+         "impliedStrict": true,
+         "experimentalObjectRestSpread": true
+     }
+ }
+ ```
+ https://github.com/babel/babel-eslint

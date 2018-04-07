@@ -34,24 +34,16 @@ const Header = () => (
   </div>
 )
 
-const Footer = ({title}) => (
-    <div>
+const Footer = ({ title }) => (
+  <div>
     <h2>{title}</h2>
 
-    <Link
-      to="/tags"
-    >
-    link to tags
-    </Link>
+    <Link to="/tags">link to tags</Link>
     <br />
-    <Link
-      to="/"
-    >
-    link to home
-    </Link>
+    <Link to="/">link to home</Link>
     <div> Martin Sundvall </div>
-    </div>
-);
+  </div>
+)
 
 const TemplateWrapper = ({ children }) => (
   <div>
@@ -73,7 +65,7 @@ const TemplateWrapper = ({ children }) => (
     >
       {children()}
     </div>
-    <Footer title='the footer' />
+    <Footer title="the footer" />
   </div>
 )
 
