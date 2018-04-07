@@ -6,20 +6,19 @@ tags: ['how to', 'eslint', 'atom']
 excerpt: "Code formatting combined with lint-rules in atom works fine, but appear to require a new setup for each project. Here is how it is done."
 ---
 
-# Code assistance and styling 
+# Code assistance and styling
 Atom Code-editor for javascript works well together with eslint configuration. Some shortkeys to formatting simplifies the daily work, and unifies the style with other developers. When starting a new project, it'd be nice if a default configuration could be used, to speed up an initial testround in new code. Since this is not the case, here is the instruction.
 
-##  current versions...
+##  files and current versions to update ...
 Atom 1.25.1  
-linter-eslint version 8.5.1 - the Atom package
-prettier-atom 0.53.0 - the Atom package
-Eslint 4.19.1 - the npm package
+linter-eslint version 8.5.1 - the Atom package  
+prettier-atom 0.53.0 - the Atom package  
+Eslint 4.19.1 - the npm package togehter with a list of other packages depending on the configuration of the project.
+.eslintrc  
+.editorconfig  
 
 ### install ESlint and set of ESLint rules to the project
-yarn add --dev eslint-config-airbnb
-or  
-npm install --save-dev eslint-config-airbnb  
-This will create the node_modules/eslint-config-airbnb
+yarn add --dev eslint eslint-config-airbnb  
 
 ### use package "linter-eslint" for atom and point to the rules
 https://atom.io/packages/linter-eslint  
@@ -57,12 +56,29 @@ https://atom.io/packages/prettier-atom
 In the "settings" section, checkmark "ESLintIntegration".
 ## Connect it to the editor configuration...
 ...to be able to apply your favourite indentation without conflicting other developers preferred style.  
-In the "settings" section, checkmark "EditorConfig Integration".
+In the "settings" section, checkmark "EditorConfig Integration". Make sure the file .editorconfig exists in the root of the project.
+### .editorconfig
+Something like this:
+```
+[*.{html,mustache,scss,js,hbs,css,jsx,mjs}]
+indent_style = tab
+tab_width = 4
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+[{package.json,*.yml}]
+indent_style = space
+indent_size = 2
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+```
 ## Ignore files to prettify
 In the "settings" section, checkmark "Ignore Files in .eslintignore". Might be that this setting is mostly important if "prettify on save" is selected. (Will it otherwise go through one billion files in node_modules?)
-## Other
-Checkmark other settings of preference, "single quotes", "bracket spacing", "semicolons", "coffee", ...
-...and probably adjust 'Tab Width' to something like 4.
+## Checkmark other settings of preference
+"single quotes", "bracket spacing", "semicolons", "coffee", ...
+...and probably adjust "Tab Width" to for example 4.
 Also evaluate the possibility to switch order of running eslint before prettier.
 ## Keybinding
 Now, the best feature: Enable keybinding to the command 'prettier:format' with selector 'atom-text-editor' and then all spaghetti will be straight again, automatically and in harmony with lint-rules.
