@@ -78,10 +78,10 @@ The active console is here the browser. The parameters
 sent to this function is found in gatsby-node.js.
  */
 export default p => {
-	// console.log('blog-post:p', p);
+	console.log('blog-post:p', p);
 	const { data, location, pathContext } = p;
 	const post = data.markdownRemark;
-	const { tagLinkPrefix } = pathContext;
+	const { tagLinkPrefix, next, previous } = pathContext;
 	const crumbs = [
 		{ name: 'home', link: '/' },
 		// { name: 'posts', link: '/#posts' },
@@ -110,6 +110,8 @@ export default p => {
 					<Box px={2} width={[1]}>
 						<Bar />
 					</Box>
+                    {previous && <Link to={previous}>previous</Link>}
+                    {next && <Link to={next}>next</Link>}
 				</Flex>
 			</Header>
 			<Content>
@@ -121,6 +123,8 @@ export default p => {
 				<Bar />
 				<div dangerouslySetInnerHTML={{ __html: post.html }} />
 			</Content>
+			{previous && <Link to={previous}>previous</Link>}
+			{next && <Link to={next}>next</Link>}
 		</div>
 	);
 };

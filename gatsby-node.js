@@ -14,12 +14,9 @@ exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
 	}
 };
 function sortNodesPerTag(createPage, posts) {
-	// console.log('sortNodesPerTag: ', posts);
 	const postsByTags = {};
 	posts.forEach(({ node }) => {
 		if (node.frontmatter.tags) {
-			// console.log('sortNodesPerTag: node.frontmatter');
-			// console.log(node.frontmatter);
 			node.frontmatter.tags.forEach(tag => {
 				if (tag.split(' ').length > 1) {
 					throw new Error(
@@ -33,9 +30,6 @@ function sortNodesPerTag(createPage, posts) {
 			});
 		}
 	});
-	// console.log('sortNodesPerTag: postsByTags');
-	// console.dir(postsByTags);
-	// console.log(postsByTags['test-tag'][0].frontmatter);
 	return postsByTags;
 }
 
@@ -75,8 +69,8 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 					edges {
 						node {
 							frontmatter {
-								tags,
-								title,
+								tags
+								title
 								date(formatString: "MMMM DD, YYYY")
 								excerpt
 							}
@@ -99,14 +93,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 				}
 			}
 		`).then(result => {
-			// console.log('gatsby-node.js: result:');
-			// console.log(result);
 			const posts = result.data.allMarkdownRemark.edges;
-			console.log('103: posts to send to sortNodesPerTag');
-			// do we have fronmatter here?
-			console.log(posts);
-			console.log('example of frontmatter');
-			console.log(posts[0].node.frontmatter);
 			const postsByTags = sortNodesPerTag(
 				createPage,
 				result.data.allMarkdownRemark.edges
@@ -134,11 +121,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 				link is built from each tag, wich means that the page
 				has to be created - which happens here in 'createPage'.
 		      */
-				const postsForTag = postsByTags[tagName];
 				const templatesTags = path.resolve(`src/templates/tags.js`);
-				const path2 = `/${tagLinkPrefix}/${tagName}`;
-				// console.log(`123: create page on url "${path2}"`);
-				// console.log(postsForTag);
 				createPage({
 					path: `/${tagLinkPrefix}/${tagName}`,
 					component: templatesTags,
@@ -151,14 +134,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 			/*
 			Here each post is created on its own path.
 			 */
-			posts.map(({ node, next, previous } , index) => {
-				// console.log('143: node.frontmatter');
-				// console.dir(node.frontmatter);
-				console.log('154: create post on each path: ');
-				console.log(posts);
-				console.log('example of frontmatter');
-				console.log(posts[index].node.frontmatter);
-				//
+			posts.map(({ node, next, previous }, index) => {
 				const nextSlug = next && next.fields.slug;
 				const previousSlug = previous && previous.fields.slug;
 				createPage({
@@ -171,7 +147,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 						// alltags: tags,
 						tagLinkPrefix,
 						tags: node.frontmatter.tags,
-						prev: previousSlug,
+						previous: previousSlug,
 						next: nextSlug
 						// prev:
 						// 	index === 0

@@ -34,8 +34,8 @@ available from the argument object: "location.pathname"
 */
 const Tags = p => {
 	const { pathContext } = p;
-	console.log('tags.js - creating pages for each tag');
-	console.log('tags:', p);
+	// console.log('tags.js - creating pages for each tag');
+	// console.log('tags:', p);
 	const { posts, tagName } = pathContext;
 
 	if (!posts) {
