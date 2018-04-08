@@ -42,48 +42,47 @@ const Footer = props => (
 		<Flex flexWrap="wrap" justifyContent="space-around">
 			<Box width={[1, 1 / 2, 1 / 3, 1 / 6]}>
 				<Flex justifyContent="center" flexDirection="column">
-				<CenteredButtonBox>
-				<Button
-					onClick={() => {
-						scrollToElement('html');
-					}}
-					small="small"
-					dark="dark"
-					opaque="opaque"
-				>
-					Top
-				</Button>
-					<Name block />
-				</CenteredButtonBox>
+					<CenteredButtonBox>
+						<Button
+							onClick={() => {
+								scrollToElement('html');
+							}}
+							small="small"
+							dark="dark"
+							opaque="opaque"
+						>
+							Top
+						</Button>
+						<Name block />
+					</CenteredButtonBox>
 
-				<CenteredButtonBox>
-					<SocmediaStyled
-						icons={[
-							{
-								name: 'github-alt',
-								href: 'https://github.com/sundvall/'
-							},
-							{
-								name: 'linkedin',
-								href:
-									'https://www.linkedin.com/in/martinsundvall'
-							}
-						]}
-					/>
-					<Box>
-						<FooterText>
-							<h4>
-								Built with{' '}
-								<a href="https://www.gatsbyjs.org/">
-									GatsbyJS
-								</a>
-							</h4>
-						</FooterText>
-					</Box>
-				</CenteredButtonBox>
+					<CenteredButtonBox>
+						<SocmediaStyled
+							icons={[
+								{
+									name: 'github-alt',
+									href: 'https://github.com/sundvall/'
+								},
+								{
+									name: 'linkedin',
+									href:
+										'https://www.linkedin.com/in/martinsundvall'
+								}
+							]}
+						/>
+						<Box>
+							<FooterText>
+								<h4>
+									Built with{' '}
+									<a href="https://www.gatsbyjs.org/">
+										GatsbyJS
+									</a>
+								</h4>
+							</FooterText>
+						</Box>
+					</CenteredButtonBox>
 				</Flex>
 			</Box>
-			
 		</Flex>
 	</Base>
 );

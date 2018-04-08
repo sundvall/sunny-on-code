@@ -83,9 +83,9 @@ crumbs = [
     { name: post.frontmatter.title, link: location.pathname }
 ];
 */
-const PageHead = ({ title, crumbs, previous, next }) => (
-	<Header>
-		<Flex wrap>
+const PageHead = ({ title, crumbs, previous, next, navBarId }) => (
+	<Header id={navBarId}>
+		<Flex>
 			<Box px={2} width={[1, 2 / 3, 1 / 3]}>
 				<Title>{title}</Title>
 			</Box>

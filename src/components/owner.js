@@ -2,10 +2,10 @@
 import React from 'react';
 import styled /* ,{ css }*/ from 'styled-components';
 /* eslint-enable import/extensions*/
-import { MIDDARK, DARK } from '../layouts/colors.js';
+import { MIDLIGHT, /* MIDDARK, DARK, */ LIGHT } from '../layouts/colors.js';
 
 const Base = styled.a`
-	color: ${MIDDARK.hex};
+	color: ${MIDLIGHT.hex};
 	margin: 20px 0;
 	width: fit-content;
 	white-space: nowrap;
@@ -13,9 +13,8 @@ const Base = styled.a`
 		cursor: pointer;
 		-webkit-background-clip: text;
 		text-decoration: none;
-		color: ${DARK.hex};
+		color: ${LIGHT.hex};
 	}
-	border: 3px dashed black;
 `;
 
 const Owner = props => (
