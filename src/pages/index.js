@@ -1,11 +1,12 @@
 /* eslint-disable import/extensions */
 import React from 'react';
-import Link from 'gatsby-link';
+// import Link from 'gatsby-link';
 import styled, { css } from 'styled-components';
 import { Flex, Box } from 'grid-styled';
 /* eslint-enable import/extensions*/
 import PageHead from '../components/page-head.js';
 import NavBar from '../components/nav-bar.js';
+import BlogPostPart from '../components/blog-post-part.js';
 import TopBackgroundWrapper from '../components/top-background-wrapper.js';
 import Socmedia from '../components/socmedia.js';
 import sizeadapation from '../utils/sizeadaptation.js';
@@ -213,25 +214,18 @@ const IndexPage = ({ data }) => {
 					crumbs={[{ name: 'home', link: '/' }]}
 				/>
 				{posts.map(({ node: post }) => {
-					const { frontmatter, fields: { slug } } = post;
+					const { frontmatter, timeToRead, fields: { slug } } = post;
+					const { date, title, excerpt, tags } = frontmatter;
 					return (
 						<div key={post.id}>
-							<h2>
-								<Link to={slug}>{frontmatter.title}</Link>
-							</h2>
-							<p>{frontmatter.date}</p>
-							<p>{frontmatter.excerpt}</p>
-							<ul>
-								{post.frontmatter.tags.map(tag => {
-									return (
-										<li key={tag}>
-											<Link to={`/tags/${tag}`}>
-												{tag}
-											</Link>
-										</li>
-									);
-								})}
-							</ul>
+							<BlogPostPart
+								title={title}
+								slug={slug}
+								date={date}
+								excerpt={excerpt}
+								tags={tags}
+								timeToRead={timeToRead}
+							/>
 						</div>
 					);
 				})}
@@ -249,6 +243,7 @@ export const query = graphql`
 			edges {
 				node {
 					id
+					timeToRead
 					frontmatter {
 						title
 						date(formatString: "MMMM DD, YYYY")
