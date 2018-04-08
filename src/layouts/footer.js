@@ -2,9 +2,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Flex, Box } from 'grid-styled';
+import scrollToElement from 'scroll-to-element';
 /* eslint-enable import/extensions*/
 import Name from '../components/owner.js';
 import Socmedia from '../components/socmedia.js';
+import Button from '../components/button.js';
 import { MIDLIGHT, MID } from './colors.js';
 
 const Base = styled.div`
@@ -38,41 +40,50 @@ const CenteredButtonBox = styled(Box)`
 const Footer = props => (
 	<Base {...props}>
 		<Flex flexWrap="wrap" justifyContent="space-around">
-			<Box px={2} width={[1, 1 / 2, 1 / 3, 1 / 6]}>
-				<Flex flexDirection="column">
-					<CenteredButtonBox>
-						<Name block />
-					</CenteredButtonBox>
-
-					<CenteredButtonBox>
-						<SocmediaStyled
-							icons={[
-								{
-									name: 'github-alt',
-									href: 'https://github.com/sundvall/'
-								},
-								{
-									name: 'linkedin',
-									href:
-										'https://www.linkedin.com/in/martinsundvall'
-								}
-							]}
-						/>
-					</CenteredButtonBox>
-				</Flex>
-			</Box>
 			<Box width={[1, 1 / 2, 1 / 3, 1 / 6]}>
 				<Flex justifyContent="center" flexDirection="column">
+				<CenteredButtonBox>
+				<Button
+					onClick={() => {
+						scrollToElement('html');
+					}}
+					small="small"
+					dark="dark"
+					opaque="opaque"
+				>
+					Top
+				</Button>
+					<Name block />
+				</CenteredButtonBox>
+
+				<CenteredButtonBox>
+					<SocmediaStyled
+						icons={[
+							{
+								name: 'github-alt',
+								href: 'https://github.com/sundvall/'
+							},
+							{
+								name: 'linkedin',
+								href:
+									'https://www.linkedin.com/in/martinsundvall'
+							}
+						]}
+					/>
 					<Box>
 						<FooterText>
 							<h4>
 								Built with{' '}
-								<a href="https://www.gatsbyjs.org/">GatsbyJS</a>
+								<a href="https://www.gatsbyjs.org/">
+									GatsbyJS
+								</a>
 							</h4>
 						</FooterText>
 					</Box>
+				</CenteredButtonBox>
 				</Flex>
 			</Box>
+			
 		</Flex>
 	</Base>
 );
