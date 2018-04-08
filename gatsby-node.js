@@ -14,9 +14,12 @@ exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
 	}
 };
 function sortNodesPerTag(createPage, posts) {
+	// console.log('sortNodesPerTag: ', posts);
 	const postsByTags = {};
 	posts.forEach(({ node }) => {
 		if (node.frontmatter.tags) {
+			// console.log('sortNodesPerTag: node.frontmatter');
+			// console.log(node.frontmatter);
 			node.frontmatter.tags.forEach(tag => {
 				if (tag.split(' ').length > 1) {
 					throw new Error(
@@ -26,16 +29,19 @@ function sortNodesPerTag(createPage, posts) {
 				if (!postsByTags[tag]) {
 					postsByTags[tag] = [];
 				}
-				postsByTags[tag].push(node);
+				postsByTags[tag].push({ ...node });
 			});
 		}
 	});
+	// console.log('sortNodesPerTag: postsByTags');
+	// console.dir(postsByTags);
+	// console.log(postsByTags['test-tag'][0].frontmatter);
 	return postsByTags;
 }
 
 /*
 This is the fetch of data from 'posts/*.md'. All information
-extracted here is passed to the creation of pages.
+extracted here is passed to the first creation of pages.
 The 'boundActionCreators' includes redux-actions used to control
 the creation.
 { deletePage: [Function],
@@ -69,7 +75,10 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 					edges {
 						node {
 							frontmatter {
-								tags
+								tags,
+								title,
+								date(formatString: "MMMM DD, YYYY")
+								excerpt
 							}
 							fields {
 								slug
@@ -90,13 +99,22 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 				}
 			}
 		`).then(result => {
-			console.log('gatsby-node.js: result:');
-			console.log(result);
+			// console.log('gatsby-node.js: result:');
+			// console.log(result);
 			const posts = result.data.allMarkdownRemark.edges;
-			const postsByTags = sortNodesPerTag(createPage, posts);
+			console.log('103: posts to send to sortNodesPerTag');
+			// do we have fronmatter here?
+			console.log(posts);
+			console.log('example of frontmatter');
+			console.log(posts[0].node.frontmatter);
+			const postsByTags = sortNodesPerTag(
+				createPage,
+				result.data.allMarkdownRemark.edges
+			);
 			const tags = Object.keys(postsByTags);
 			const tagLinkPrefix = `tags`;
-			/* create the view with all tags on url /tags */
+			/* create the view with all tags on url "/tagLinkPrefix",
+			and use the template specified */
 			createPage({
 				path: tagLinkPrefix,
 				component: path.resolve(`src/templates/all-tags.js`),
@@ -114,37 +132,55 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 				togehter with the tagname. (The template uses parts
 				of the post's content, including metainformation). A
 				link is built from each tag, wich means that the page
-				has to be created - which happens in 'createPage'.
+				has to be created - which happens here in 'createPage'.
 		      */
 				const postsForTag = postsByTags[tagName];
 				const templatesTags = path.resolve(`src/templates/tags.js`);
+				const path2 = `/${tagLinkPrefix}/${tagName}`;
+				// console.log(`123: create page on url "${path2}"`);
+				// console.log(postsForTag);
 				createPage({
 					path: `/${tagLinkPrefix}/${tagName}`,
 					component: templatesTags,
 					context: {
-						posts: postsForTag,
+						posts: postsByTags[tagName],
 						tagName
 					}
 				});
 			});
-			posts.map(({ node }, index) => {
+			/*
+			Here each post is created on its own path.
+			 */
+			posts.map(({ node, next, previous } , index) => {
+				// console.log('143: node.frontmatter');
+				// console.dir(node.frontmatter);
+				console.log('154: create post on each path: ');
+				console.log(posts);
+				console.log('example of frontmatter');
+				console.log(posts[index].node.frontmatter);
+				//
+				const nextSlug = next && next.fields.slug;
+				const previousSlug = previous && previous.fields.slug;
 				createPage({
 					path: node.fields.slug,
 					component: path.resolve(`./src/templates/blog-post.js`),
 					context: {
-						// Data passed to context is available in page queries as GraphQL variables.
+						// Data passed to context is available
+						// in page queries as GraphQL variables.
 						slug: node.fields.slug,
-						alltags: tags,
+						// alltags: tags,
 						tagLinkPrefix,
 						tags: node.frontmatter.tags,
-						prev:
-							index === 0
-								? null
-								: posts[index - 1].node.fields.slug,
-						next:
-							index === posts.length - 1
-								? null
-								: posts[index + 1].node.fields.slug
+						prev: previousSlug,
+						next: nextSlug
+						// prev:
+						// 	index === 0
+						// 		? null
+						// 		: posts[index - 1].node.fields.slug,
+						// next:
+						// 	index === posts.length - 1
+						// 		? null
+						// 		: posts[index + 1].node.fields.slug
 					}
 				});
 			});

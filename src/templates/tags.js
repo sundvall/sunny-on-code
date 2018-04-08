@@ -1,37 +1,71 @@
 /* eslint-disable import/extensions*/
 import React from 'react';
 import Link from 'gatsby-link';
+import TimeAgo from 'react-timeago';
 /* eslint-enable import/extensions*/
-/* gatsby-node.js bygger och skickar innehåll hit.
-posts är en array med noder
-posts = [node1,node2,node4]
-tagName = 'foo'
-Lite av innehållet i en 'post' visas (för närvarande
-endast titeln) och en länk till posten sätts. Det
-kräver att själva posten också är byggd, och finns
-på urlen som angetts i toppen på .md-filen.
+
+/* gatsby-node.js creates the parameters to this template.
+The argument object consists of common properties sent
+to all templates, but unique for this template is the
+'pathContext' that mirrors the 'context' object in the
+calling function:
+context: {
+	posts : array of nodes
+	tagName : string
+}
+pathContext:{
+	posts: [node1, node2, ..., nodeN],
+	tagName: string
+}
+where a node is built with additional fields and
+content in markdown-file (about fields- see 'gatsby-node.js:onCreateNode')
+node: {
+	fields:{
+		slug:[string extracted from its filename]
+	},
+	frontmatter:{
+		tags: [string, string, string]
+	}
+}
+--
+Also information about the url/path to this page is
+available from the argument object: "location.pathname"
+--
 */
-const Tags = ({ pathContext }) => {
+const Tags = p => {
+	const { pathContext } = p;
+	console.log('tags.js - creating pages for each tag');
+	console.log('tags:', p);
 	const { posts, tagName } = pathContext;
 
-	if (!posts) return null;
+	if (!posts) {
+		throw new Error('tags: no posts: 54');
+	}
+
 	return (
 		<div>
 			<span>Posts about {tagName}:</span>
 
 			<ul>
-				{posts.map(post => {
-					return (
-						<li key={post.id}>
-							<Link to={post.frontmatter.path}>
-								{post.frontmatter.title}
-							</Link>
-						</li>
-					);
-				})}
+				{posts.map(
+					({ fields, frontmatter: { excerpt, date, title } }) => {
+						const { slug } = fields;
+						return (
+							<li key={slug}>
+								<Link to={slug}>
+									<h2>{title}</h2>
+									<p>{excerpt}</p>
+									<p>
+										Posted:
+										<TimeAgo date={date} />
+									</p>
+								</Link>
+							</li>
+						);
+					}
+				)}
 			</ul>
 		</div>
 	);
 };
-
 export default Tags;

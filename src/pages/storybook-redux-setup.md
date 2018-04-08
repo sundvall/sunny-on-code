@@ -2,7 +2,7 @@
 path: "/storybook-redux-setup"
 date: "2018-04-06"
 title: "Extract components fram a large codebase with react-storybook"
-tags: ['component-based-development', 'react', 'react-storybook']
+tags: ['component-based-development', 'react', 'react-storybook','test-tag']
 excerpt: "Break free from a large codebase to work independently, visualize dataflow with redux-dev-tools"
 ---
 

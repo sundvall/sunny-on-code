@@ -68,13 +68,17 @@ const Timestamp = styled.i`
 const TimeToRead = styled.h5`
 	text-transform: uppercase;
 	margin-top: 0.5em;
-    margin-right: 0.5em;
+	margin-right: 0.5em;
 	display: inline-block;
-    float:left;
+	float: left;
 `;
 
+/*
+The active console is here the browser. The parameters
+sent to this function is found in gatsby-node.js.
+ */
 export default p => {
-	console.log('blog-post:p', p);
+	// console.log('blog-post:p', p);
 	const { data, location, pathContext } = p;
 	const post = data.markdownRemark;
 	const { tagLinkPrefix } = pathContext;
@@ -113,7 +117,7 @@ export default p => {
 				<Timestamp>
 					Posted: <TimeAgo date={post.frontmatter.date} />
 				</Timestamp>
-                <Tags>{tags}</Tags>
+				<Tags>{tags}</Tags>
 				<Bar />
 				<div dangerouslySetInnerHTML={{ __html: post.html }} />
 			</Content>
