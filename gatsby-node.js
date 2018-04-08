@@ -26,7 +26,6 @@ function sortNodesPerTag(createPage, posts) {
 				if (!postsByTags[tag]) {
 					postsByTags[tag] = [];
 				}
-
 				postsByTags[tag].push(node);
 			});
 		}
@@ -34,6 +33,33 @@ function sortNodesPerTag(createPage, posts) {
 	return postsByTags;
 }
 
+/*
+This is the fetch of data from 'posts/*.md'. All information
+extracted here is passed to the creation of pages.
+The 'boundActionCreators' includes redux-actions used to control
+the creation.
+{ deletePage: [Function],
+  createPage: [Function],
+  deleteLayout: [Function],
+  createLayout: [Function],
+  deleteNode: [Function],
+  deleteNodes: [Function],
+  createNode: [Function],
+  touchNode: [Function],
+  createNodeField: [Function], - used above in 'onCreateNode'
+  createParentChildLink: [Function],
+  createPageDependency: [Function],
+  deleteComponentsDependencies: [Function],
+  replaceComponentQuery: [Function],
+  createJob: [Function],
+  setJob: [Function],
+  endJob: [Function],
+  setPluginStatus: [Function],
+  createRedirect: [Function] }
+  The result from the query has the structure described by itself:
+  like "{ data: { allMarkdownRemark: { edges: [Array] } } } "
+  Test the query and response in GraphiQL.
+*/
 exports.createPages = ({ graphql, boundActionCreators }) => {
 	const { createPage } = boundActionCreators;
 	return new Promise((resolve /* , reject */) => {
@@ -49,10 +75,23 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 								slug
 							}
 						}
+						next {
+							fields {
+								slug
+							}
+						}
+						previous {
+							fields {
+								slug
+							}
+						}
 					}
+					totalCount
 				}
 			}
 		`).then(result => {
+			console.log('gatsby-node.js: result:');
+			console.log(result);
 			const posts = result.data.allMarkdownRemark.edges;
 			const postsByTags = sortNodesPerTag(createPage, posts);
 			const tags = Object.keys(postsByTags);
@@ -67,15 +106,15 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 			});
 			/*
 			create a view for each of the tags with a list
-			of all posts for that tag on the url
+			of all posts for that tag
 			 */
 			tags.forEach(tagName => {
 				/*
-		     varje lista med noder för en tag skickas till template
-		     tillsammans med tag-namnet. Template'n använder
-		     lite av postens innehåll och länkar till posten, vilket
-		     alltså förutsätter att den är byggd, vilket sker nedan
-		     i createPage(...node.frontmatter.path...).
+				Each list of nodes for a tag is sent to the template
+				togehter with the tagname. (The template uses parts
+				of the post's content, including metainformation). A
+				link is built from each tag, wich means that the page
+				has to be created - which happens in 'createPage'.
 		      */
 				const postsForTag = postsByTags[tagName];
 				const templatesTags = path.resolve(`src/templates/tags.js`);
