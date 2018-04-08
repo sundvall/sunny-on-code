@@ -1,6 +1,5 @@
 ---
-path: "/eslint-prettier-for-atom"
-date: "2018-04-08"
+date: "2018-04-08T01:09:11.165Z"
 title: "This new webpage"
 tags: ['flexbox', 'graphql', 'gatsby', 'tools', 'test-tag']
 excerpt: "The equipment for this site."

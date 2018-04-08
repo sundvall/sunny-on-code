@@ -1,5 +1,4 @@
 ---
-path: "/npm-translate-yarn"
 date: "2018-04-06T03:19:24.165Z"
 title: "Yarn cheat sheet"
 tags: ['yarn', 'npm', 'changes', 'eternity','test-tag']

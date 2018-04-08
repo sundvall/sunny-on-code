@@ -34,7 +34,6 @@ const WrapAll = styled.div`
 	img {
 		margin-bottom: 0;
 	}
-	border: 3px solid red;
 `;
 
 const Content = styled.div`
@@ -48,7 +47,7 @@ const TemplateWrapper = ({ location, children }) => {
 	the <head>.
 	*/
 	return (
-		<WrapAll>
+		<WrapAll id="home">
 			<Helmet
 				title="Martin Sundvall"
 				meta={[

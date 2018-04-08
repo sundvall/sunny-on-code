@@ -73,40 +73,6 @@ const TimeToRead = styled.h5`
 	display: inline-block;
 	float: left;
 `;
-
-// const PageHead = ({ title, crumbs, previous, next }) => (
-// 	<Header>
-// 		<Flex wrap>
-// 			<Box px={2} width={[1, 2 / 3, 1 / 3]}>
-// 				<Title>{title}</Title>
-// 			</Box>
-// 			<Box px={2} width={[1, 2 / 3]}>
-// 				<Breadcrumb crumbs={crumbs} />
-// 			</Box>
-// 			<Box px={2} width={[1]}>
-// 				<Bar />
-// 			</Box>
-// 			{previous && <Link to={previous}>previous</Link>}
-// 			{next && <Link to={next}>next</Link>}
-// 		</Flex>
-// 	</Header>
-// );
-
-// <Header>
-//     <Flex wrap>
-//         <Box px={2} width={[1, 2 / 3, 1 / 3]}>
-//             <Title>{post.frontmatter.title}</Title>
-//         </Box>
-//         <Box px={2} width={[1, 2 / 3]}>
-//             <Breadcrumb crumbs={crumbs} />
-//         </Box>
-//         <Box px={2} width={[1]}>
-//             <Bar />
-//         </Box>
-//         {previous && <Link to={previous}>previous</Link>}
-//         {next && <Link to={next}>next</Link>}
-//     </Flex>
-// </Header>
 /*
 The active console is here the browser. The parameters
 sent to this function is found in gatsby-node.js.

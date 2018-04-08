@@ -13,7 +13,6 @@ const Base = styled.div`
 	height: fit-contents;
 	padding: 0;
 	background: ${MIDLIGHT.hex};
-	border: 1px solid blue;
 `;
 
 const FooterText = styled.div`
@@ -23,18 +22,15 @@ const FooterText = styled.div`
 	a {
 		color: ${MID.hex};
 	}
-	border: 1px solid yellow;
 `;
 
 const SocmediaStyled = styled(Socmedia)`
 	margin-left: -8px;
 	text-align: left;
-	border: 1px dashed green;
 `;
 
 const CenteredButtonBox = styled(Box)`
 	margin: 2em auto;
-	border: 1px dashed grey;
 `;
 
 const Footer = props => (
@@ -53,7 +49,11 @@ const Footer = props => (
 						>
 							Top
 						</Button>
+					</CenteredButtonBox>
+					<CenteredButtonBox>
 						<Name block />
+						<p>martin@martinsundvall.se</p>
+						<p>+46 739 84 61 91</p>
 					</CenteredButtonBox>
 
 					<CenteredButtonBox>

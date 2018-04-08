@@ -1,12 +1,12 @@
 /* eslint-disable import/extensions*/
 import React from 'react';
 import styled from 'styled-components';
-import Link from 'gatsby-link';
+// import Link from 'gatsby-link';
 // import TimeAgo from 'react-timeago';
 import { Flex, Box } from 'grid-styled';
 /* eslint-enable import/extensions*/
 import Breadcrumb from '../components/breadcrumb.js';
-import Bar from '../components/bar.js';
+// import Bar from '../components/bar.js';
 import {
 	/* LIGHT, MIDLIGHT, MID,*/ MIDDARK /* ,DARK */
 } from '../layouts/colors.js';
@@ -83,7 +83,7 @@ crumbs = [
     { name: post.frontmatter.title, link: location.pathname }
 ];
 */
-const PageHead = ({ title, crumbs, previous, next, navBarId }) => (
+const PageHead = ({ title, crumbs, /* previous, next, */ navBarId }) => (
 	<Header id={navBarId}>
 		<Flex>
 			<Box px={2} width={[1, 2 / 3, 1 / 3]}>
@@ -92,11 +92,6 @@ const PageHead = ({ title, crumbs, previous, next, navBarId }) => (
 			<Box px={2} width={[1, 2 / 3]}>
 				<Breadcrumb crumbs={crumbs} />
 			</Box>
-			<Box px={2} width={[1]}>
-				<Bar />
-			</Box>
-			{previous && <Link to={previous}>previous</Link>}
-			{next && <Link to={next}>next</Link>}
 		</Flex>
 	</Header>
 );

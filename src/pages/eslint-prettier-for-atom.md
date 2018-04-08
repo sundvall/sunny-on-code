@@ -1,6 +1,5 @@
 ---
-path: "/eslint-prettier-for-atom"
-date: "2018-04-06"
+date: "2018-04-06T12:19:24.165Z"
 title: "Lint and format for Atom"
 tags: ['how-to', 'eslint', 'atom', 'tools', 'test-tag']
 excerpt: "Code formatting combined with lint-rules in atom works fine, but appear to require a new setup for each project. Here is how it is done."

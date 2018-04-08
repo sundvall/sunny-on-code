@@ -2,10 +2,14 @@
 import React from 'react';
 import styled /* ,{ css }*/ from 'styled-components';
 /* eslint-enable import/extensions*/
-import { MIDLIGHT, /* MIDDARK, DARK, */ LIGHT } from '../layouts/colors.js';
+import {
+	/* MIDLIGHT,*/
+	MID,
+	/* MIDDARK, DARK, */ LIGHT
+} from '../layouts/colors.js';
 
 const Base = styled.a`
-	color: ${MIDLIGHT.hex};
+	color: ${MID.hex};
 	margin: 20px 0;
 	width: fit-content;
 	white-space: nowrap;
@@ -18,7 +22,7 @@ const Base = styled.a`
 `;
 
 const Owner = props => (
-	<Base {...props} href="/">
+	<Base {...props} href="/#home">
 		Martin Sundvall
 	</Base>
 );

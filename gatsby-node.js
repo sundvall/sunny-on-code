@@ -65,7 +65,9 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 	return new Promise((resolve /* , reject */) => {
 		graphql(`
 			{
-				allMarkdownRemark {
+				allMarkdownRemark(
+					sort: { fields: frontmatter___date, order: DESC }
+				) {
 					edges {
 						node {
 							frontmatter {
@@ -134,10 +136,10 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 			/*
 			Here each post is created on its own path.
 			 */
-			posts.map(({ node, next, previous }, index) => {
+			posts.map(({ node, next, previous }) => {
 				const nextSlug = next && next.fields.slug;
 				const previousSlug = previous && previous.fields.slug;
-				createPage({
+				return createPage({
 					path: node.fields.slug,
 					component: path.resolve(`./src/templates/blog-post.js`),
 					context: {

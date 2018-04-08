@@ -9,7 +9,11 @@ import NavBar from '../components/nav-bar.js';
 import TopBackgroundWrapper from '../components/top-background-wrapper.js';
 import Socmedia from '../components/socmedia.js';
 import sizeadapation from '../utils/sizeadaptation.js';
-import { LIGHT, DARK, MIDLIGHT, MIDDARK, MID } from '../layouts/colors.js';
+import {
+	/* LIGHT, DARK, MIDLIGHT, */
+	MID,
+	MIDDARK
+} from '../layouts/colors.js';
 
 const SocmediaStyled = styled(Socmedia)`
 	position: absolute;
@@ -132,39 +136,31 @@ const Section = styled.div`
 		`};
 `;
 
-// const Item = styled.div`
-// 	width: 40%;
-// 	margin: 0 auto;
-// 	border: none;
-// 	border-bottom: 1px solid #eee;
-// 	h6 {
-// 		letter-spacing: 2px;
-// 		font-weight: 700;
-// 		padding-top: 6px;
-// 	}
-// 	span,
-// 	p {
-// 		font-size: 13px;
-// 		line-height: 24px;
-// 		color: #666;
-// 	}
-// 	span {
-// 		opacity: 0.75;
-// 		float: right;
-// 		text-transform: uppercase;
-// 	}
-// 	p {
-// 		margin-bottom: 24px;
-// 		opacity: 0.5;
-// 	}
-// 	${sizeadapation.xs`
-//     width: 90%;
-//   `};
-// `;
-
-const About = ({background}) => (
-	<Section background={background} id="about">
-		<Title>About Me</Title>
+const Contact = ({ background, navBarId }) => (
+	<Section id={navBarId} background={background}>
+		<Title>Contact</Title>
+		<Flex alignItems="center" flexDirection="column">
+			<Box px={2} width={[1, 1 / 2]}>
+				<p>martin@martinsundvall.se</p>
+				<p>+46 739 84 61 91</p>
+				<a href="https://www.linkedin.com/in/martinsundvall">
+					https://www.linkedin.com/in/martinsundvall
+				</a>
+				<Socmedia
+					icons={[
+						{
+							name: 'linkedin',
+							href: 'https://www.linkedin.com/in/martinsundvall'
+						}
+					]}
+				/>
+			</Box>
+		</Flex>
+	</Section>
+);
+const About = ({ background, navBarId }) => (
+	<Section id={navBarId} background={background}>
+		<Title>About me</Title>
 		<Flex alignItems="center" flexDirection="column">
 			<Box px={2} width={[1, 1 / 2]}>
 				<p>
@@ -188,6 +184,7 @@ const IndexPage = ({ data }) => {
 	const { edges: posts } = data.allMarkdownRemark;
 	const links = [
 		{ title: 'posts', href: '#posts' },
+		{ title: 'all-tags', href: '/tags' },
 		{ title: 'about', href: '#about' },
 		{ title: 'contact', href: '#contact' }
 	];
@@ -216,14 +213,11 @@ const IndexPage = ({ data }) => {
 					crumbs={[{ name: 'home', link: '/' }]}
 				/>
 				{posts.map(({ node: post }) => {
-					const { frontmatter } = post;
-
+					const { frontmatter, fields: { slug } } = post;
 					return (
 						<div key={post.id}>
 							<h2>
-								<Link to={frontmatter.path}>
-									{frontmatter.title}
-								</Link>
+								<Link to={slug}>{frontmatter.title}</Link>
 							</h2>
 							<p>{frontmatter.date}</p>
 							<p>{frontmatter.excerpt}</p>
@@ -241,7 +235,8 @@ const IndexPage = ({ data }) => {
 						</div>
 					);
 				})}
-				<About background={MIDDARK.hex} id="about" />
+				<About background={MIDDARK.hex} navBarId="about" />
+				<Contact background={MID.hex} navBarId="contact" />
 			</Content>
 		</div>
 	);
@@ -257,9 +252,11 @@ export const query = graphql`
 					frontmatter {
 						title
 						date(formatString: "MMMM DD, YYYY")
-						path
 						tags
 						excerpt
+					}
+					fields {
+						slug
 					}
 				}
 			}
