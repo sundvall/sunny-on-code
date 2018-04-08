@@ -2,6 +2,7 @@
 import React from 'react';
 import Link from 'gatsby-link';
 /* eslint-enable import/extensions*/
+import PageHead from '../components/page-head.js';
 
 /* Denna komponent läser en array med 'tags'
 ['tag1', 'tag2', 'tag3' ... ]
@@ -14,6 +15,13 @@ const AllTags = ({ pathContext }) => {
 	if (!tags) return null;
 	return (
 		<div>
+			<PageHead
+				title="all tags"
+				crumbs={[
+					{ name: 'home', link: '/' },
+					{ name: 'tags', link: '/tags' }
+				]}
+			/>
 			<ul>
 				{tags.map(tag => {
 					return (

@@ -2,11 +2,13 @@
 import React from 'react';
 import Link from 'gatsby-link';
 /* eslint-enable import/extensions*/
+import PageHead from '../components/page-head.js';
 
 const IndexPage = ({ data }) => {
 	const { edges: posts } = data.allMarkdownRemark;
 	return (
 		<div>
+			<PageHead title="INDEX" crumbs={[{ name: 'home', link: '/' }]} />
 			{posts.map(({ node: post }) => {
 				const { frontmatter } = post;
 

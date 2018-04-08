@@ -3,27 +3,28 @@ import React from 'react';
 import styled from 'styled-components';
 import Link from 'gatsby-link';
 import TimeAgo from 'react-timeago';
-import { Flex, Box } from 'grid-styled';
+// import { Flex, Box } from 'grid-styled';
 /* eslint-enable import/extensions*/
-import Breadcrumb from '../components/breadcrumb.js';
+// import Breadcrumb from '../components/breadcrumb.js';
+import PageHead from '../components/page-head.js';
 import Bar from '../components/bar.js';
-import {
-	/* LIGHT, MIDLIGHT, MID,*/ MIDDARK /* ,DARK */
-} from '../layouts/colors.js';
+// import {
+// 	/* LIGHT, MIDLIGHT, MID,*/ MIDDARK /* ,DARK */
+// } from '../layouts/colors.js';
 
-const Header = styled.div`
-	height: fit-contents;
-	padding: 0;
-	background: ${MIDDARK.hex};
-	position: relative;
-	overflow: hidden;
-
-	& > div {
-		padding-top: 120px;
-		margin: auto;
-		max-width: 600px;
-	}
-`;
+// const Header = styled.div`
+// 	height: fit-contents;
+// 	padding: 0;
+// 	background: ${MIDDARK.hex};
+// 	position: relative;
+// 	overflow: hidden;
+//
+// 	& > div {
+// 		padding-top: 120px;
+// 		margin: auto;
+// 		max-width: 600px;
+// 	}
+// `;
 
 const Tags = styled.ol`
 	float: right;
@@ -55,11 +56,11 @@ const Content = styled.div`
 	}
 `;
 
-const Title = styled.h1`
-	margin-top: 0;
-	text-transform: capitalize;
-	color: #fff;
-`;
+// const Title = styled.h1`
+// 	margin-top: 0;
+// 	text-transform: capitalize;
+// 	color: #fff;
+// `;
 
 const Timestamp = styled.i`
 	float: left;
@@ -73,6 +74,39 @@ const TimeToRead = styled.h5`
 	float: left;
 `;
 
+// const PageHead = ({ title, crumbs, previous, next }) => (
+// 	<Header>
+// 		<Flex wrap>
+// 			<Box px={2} width={[1, 2 / 3, 1 / 3]}>
+// 				<Title>{title}</Title>
+// 			</Box>
+// 			<Box px={2} width={[1, 2 / 3]}>
+// 				<Breadcrumb crumbs={crumbs} />
+// 			</Box>
+// 			<Box px={2} width={[1]}>
+// 				<Bar />
+// 			</Box>
+// 			{previous && <Link to={previous}>previous</Link>}
+// 			{next && <Link to={next}>next</Link>}
+// 		</Flex>
+// 	</Header>
+// );
+
+// <Header>
+//     <Flex wrap>
+//         <Box px={2} width={[1, 2 / 3, 1 / 3]}>
+//             <Title>{post.frontmatter.title}</Title>
+//         </Box>
+//         <Box px={2} width={[1, 2 / 3]}>
+//             <Breadcrumb crumbs={crumbs} />
+//         </Box>
+//         <Box px={2} width={[1]}>
+//             <Bar />
+//         </Box>
+//         {previous && <Link to={previous}>previous</Link>}
+//         {next && <Link to={next}>next</Link>}
+//     </Flex>
+// </Header>
 /*
 The active console is here the browser. The parameters
 sent to this function is found in gatsby-node.js.
@@ -84,7 +118,7 @@ export default p => {
 	const { tagLinkPrefix, next, previous } = pathContext;
 	const crumbs = [
 		{ name: 'home', link: '/' },
-		// { name: 'posts', link: '/#posts' },
+		// { name: 'other', link: '/#posts' },
 		// { name: 'about', link: '/about' },
 		// { name: 'tags', link: `/${tagLinkPrefix}` },
 		{ name: post.frontmatter.title, link: location.pathname }
@@ -99,21 +133,12 @@ export default p => {
 	/* eslint-disable react/no-danger*/
 	return (
 		<div>
-			<Header>
-				<Flex wrap>
-					<Box px={2} width={[1, 2 / 3, 1 / 3]}>
-						<Title>{post.frontmatter.title}</Title>
-					</Box>
-					<Box px={2} width={[1, 2 / 3]}>
-						<Breadcrumb crumbs={crumbs} />
-					</Box>
-					<Box px={2} width={[1]}>
-						<Bar />
-					</Box>
-                    {previous && <Link to={previous}>previous</Link>}
-                    {next && <Link to={next}>next</Link>}
-				</Flex>
-			</Header>
+			<PageHead
+				title={post.frontmatter.title}
+				crumbs={crumbs}
+				previous={previous}
+				next={next}
+			/>
 			<Content>
 				<TimeToRead>{post.timeToRead} min read</TimeToRead>
 				<Timestamp>

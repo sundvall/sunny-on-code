@@ -3,7 +3,7 @@ import React from 'react';
 import Link from 'gatsby-link';
 import TimeAgo from 'react-timeago';
 /* eslint-enable import/extensions*/
-
+import PageHead from '../components/page-head.js';
 /* gatsby-node.js creates the parameters to this template.
 The argument object consists of common properties sent
 to all templates, but unique for this template is the
@@ -44,6 +44,14 @@ const Tags = p => {
 
 	return (
 		<div>
+			<PageHead
+				title={tagName}
+				crumbs={[
+					{ name: 'home', link: '/' },
+					{ name: 'tags', link: '/tags' },
+					{ name: tagName, link: tagName }
+				]}
+			/>
 			<span>Posts about {tagName}:</span>
 
 			<ul>
