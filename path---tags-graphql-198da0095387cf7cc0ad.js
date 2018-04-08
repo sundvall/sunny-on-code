@@ -1,0 +1,2 @@
+webpackJsonp([50597499775658],{563:function(t,e){t.exports={pathContext:{posts:[{frontmatter:{tags:["flexbox","graphql","gatsby","tools","test-tag"],title:"This new webpage",date:"April 08, 2018",excerpt:"The equipment for this site."},fields:{slug:"/new-webpage/"}}],tagName:"graphql"}}}});
+//# sourceMappingURL=path---tags-graphql-198da0095387cf7cc0ad.js.map

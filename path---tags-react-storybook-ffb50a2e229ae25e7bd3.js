@@ -1,0 +1,2 @@
+webpackJsonp([0x81e07b546b53],{566:function(e,t){e.exports={pathContext:{posts:[{frontmatter:{tags:["component-based-development","react","react-storybook","test-tag"],title:"Extract components fram a large codebase with react-storybook",date:"April 06, 2018",excerpt:"Break free from a large codebase to work independently, visualize dataflow with redux-dev-tools"},fields:{slug:"/storybook-redux-setup/"}}],tagName:"react-storybook"}}}});
+//# sourceMappingURL=path---tags-react-storybook-ffb50a2e229ae25e7bd3.js.map
