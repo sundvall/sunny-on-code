@@ -22,7 +22,7 @@ const Base = styled.a`
 `;
 
 const Owner = props => (
-	<Base {...props} href="/#home">
+	<Base {...props} href="#home">
 		Martin Sundvall
 	</Base>
 );

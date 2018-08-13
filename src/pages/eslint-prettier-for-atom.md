@@ -99,6 +99,7 @@ and
 That will require some of these in "package.json":
 ```
 "eslint": "^4.16.0",
+"prettier": "^1.12.1"
 "eslint-config-airbnb": "^16.1.0",
 "eslint-config-prettier": "^2.9.0",
 "eslint-plugin-jsx-a11y": "^6.0.3",
@@ -113,12 +114,20 @@ That will require some of these in "package.json":
  Forgotten? Add them to the project and use the linter again. Can be of interest to reload atom packages with (ctrl+alt+cmd+L)
  ```
  yarn add --dev eslint
- yarn add --dev eslint-config-prettie
+ yarn add --dev prettier
+ yarn add --dev eslint-config-prettier
  yarn add --dev eslint-plugin-prettier  
  yarn add --dev eslint-plugin-react  
  yarn add --dev eslint-plugin-import
  yarn add --dev eslint-config-airbnb   
+ yarn add --dev eslint-plugin-jsx-a11y   
  ```
+ or in one line:
+
+ ```
+ yarn add --dev eslint prettier eslint-config-prettier eslint-plugin-prettier eslint-plugin-react eslint-plugin-import eslint-config-airbnb  
+ ```
+
  ### Other errors and settings
  The possibilities to configure these tools are vast. Some lint-rules might not be working if they are experimental, for example, and the solution can be to parse the code through babel before applying the linter.
  .eslintrc will have something like this:
@@ -136,6 +145,8 @@ That will require some of these in "package.json":
  }
  ```
  https://github.com/babel/babel-eslint
+ ###reload modules
+ Atom shortcut ctrl+cmd+alt+L
  ### links
  eslintrc configuration
  https://eslint.org/docs/user-guide/configuring
