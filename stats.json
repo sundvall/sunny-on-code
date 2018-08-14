@@ -5,8 +5,8 @@
       "path---tags-changes-b69e6a3f3b21a48c7de5.js.map"
     ],
     "component---src-pages-index-js": [
-      "component---src-pages-index-js-42990a71b2c8e1abf01d.js",
-      "component---src-pages-index-js-42990a71b2c8e1abf01d.js.map"
+      "component---src-pages-index-js-468009ec4bee39937de0.js",
+      "component---src-pages-index-js-468009ec4bee39937de0.js.map"
     ],
     "path---tags-graphql": [
       "path---tags-graphql-198da0095387cf7cc0ad.js",
@@ -29,8 +29,8 @@
       "path----557518bd178906f8d58a.js.map"
     ],
     "path---new-webpage": [
-      "path---new-webpage-764dbfa9bd7973ee7d66.js",
-      "path---new-webpage-764dbfa9bd7973ee7d66.js.map"
+      "path---new-webpage-37a58f9db7eb1ed9bf12.js",
+      "path---new-webpage-37a58f9db7eb1ed9bf12.js.map"
     ],
     "path---npm-translate-yarn": [
       "path---npm-translate-yarn-69ae068ed14eb8286901.js",
@@ -40,65 +40,69 @@
       "path---storybook-redux-setup-20ad02a8252c4c5ea025.js",
       "path---storybook-redux-setup-20ad02a8252c4c5ea025.js.map"
     ],
+    "path---algorithms-and-structures-overview": [
+      "path---algorithms-and-structures-overview-66e92901c441e5c32475.js",
+      "path---algorithms-and-structures-overview-66e92901c441e5c32475.js.map"
+    ],
     "path---tags-react": [
       "path---tags-react-922e2ea99382e235cb84.js",
       "path---tags-react-922e2ea99382e235cb84.js.map"
     ],
     "component---src-templates-blog-post-js": [
-      "component---src-templates-blog-post-js-7221936b78f2a1c62bf8.js",
-      "component---src-templates-blog-post-js-7221936b78f2a1c62bf8.js.map"
+      "component---src-templates-blog-post-js-6281ac30187507f1541b.js",
+      "component---src-templates-blog-post-js-6281ac30187507f1541b.js.map"
     ],
     "path---eslint-prettier-for-atom": [
-      "path---eslint-prettier-for-atom-e129bcde16c3ec314dcf.js",
-      "path---eslint-prettier-for-atom-e129bcde16c3ec314dcf.js.map"
+      "path---eslint-prettier-for-atom-af72820fa36a9c940a13.js",
+      "path---eslint-prettier-for-atom-af72820fa36a9c940a13.js.map"
     ],
     "path---tags-eternity": [
       "path---tags-eternity-d86652804b967aac02a1.js",
       "path---tags-eternity-d86652804b967aac02a1.js.map"
     ],
     "component---src-layouts-index-js": [
-      "component---src-layouts-index-js-512e6743db846148bc10.js",
-      "component---src-layouts-index-js-512e6743db846148bc10.js.map"
+      "component---src-layouts-index-js-cbd3695e5cc3e2002ff5.js",
+      "component---src-layouts-index-js-cbd3695e5cc3e2002ff5.js.map"
     ],
     "path---tags-gatsby": [
       "path---tags-gatsby-1b50c6c0870492882066.js",
       "path---tags-gatsby-1b50c6c0870492882066.js.map"
     ],
     "path---tags-test-tag": [
-      "path---tags-test-tag-1f96c1b4853a7e854f34.js",
-      "path---tags-test-tag-1f96c1b4853a7e854f34.js.map"
+      "path---tags-test-tag-5082afd7b4b2e8a37bdd.js",
+      "path---tags-test-tag-5082afd7b4b2e8a37bdd.js.map"
     ],
     "path---index": [
-      "path---index-333f8b922c58aeb028b5.js",
-      "path---index-333f8b922c58aeb028b5.js.map"
+      "path---index-70cc99fa209c7b1afed5.js",
+      "path---index-70cc99fa209c7b1afed5.js.map"
     ],
     "path---tags-react-storybook": [
       "path---tags-react-storybook-ffb50a2e229ae25e7bd3.js",
       "path---tags-react-storybook-ffb50a2e229ae25e7bd3.js.map"
     ],
     "path---tags-atom": [
-      "path---tags-atom-5a71c7433b34d4009a29.js",
-      "path---tags-atom-5a71c7433b34d4009a29.js.map"
+      "path---tags-atom-cab85fb6b8b56a2d9031.js",
+      "path---tags-atom-cab85fb6b8b56a2d9031.js.map"
     ],
     "component---src-pages-404-js": [
       "component---src-pages-404-js-c30141aef66123748574.js",
       "component---src-pages-404-js-c30141aef66123748574.js.map"
     ],
     "commons": [
-      "commons-653aec717490ddb8e7d9.js",
-      "commons-653aec717490ddb8e7d9.js.map"
+      "commons-72900e29babef724ff82.js",
+      "commons-72900e29babef724ff82.js.map"
     ],
     "path---404-html": [
       "path---404-html-a0e39f21c11f6a62c5ab.js",
       "path---404-html-a0e39f21c11f6a62c5ab.js.map"
     ],
     "path---tags-tools": [
-      "path---tags-tools-d2a02f8961467ce4c6a3.js",
-      "path---tags-tools-d2a02f8961467ce4c6a3.js.map"
+      "path---tags-tools-08b1ec20dc0ab9649666.js",
+      "path---tags-tools-08b1ec20dc0ab9649666.js.map"
     ],
     "path---tags-eslint": [
-      "path---tags-eslint-8d2e47b8c1fc79b74e1f.js",
-      "path---tags-eslint-8d2e47b8c1fc79b74e1f.js.map"
+      "path---tags-eslint-e069ba2c7ea57bfc2316.js",
+      "path---tags-eslint-e069ba2c7ea57bfc2316.js.map"
     ],
     "path---tags-component-based-development": [
       "path---tags-component-based-development-8520d40277e815fdc0d3.js",
@@ -109,12 +113,12 @@
       "component---src-templates-all-tags-js-293127666ee7ea62d575.js.map"
     ],
     "app": [
-      "app-0035dc12938fbdc762ea.js",
-      "app-0035dc12938fbdc762ea.js.map"
+      "app-05dbec4b504d502574b0.js",
+      "app-05dbec4b504d502574b0.js.map"
     ],
     "path---tags-how-to": [
-      "path---tags-how-to-b6298119056a6fc4a16a.js",
-      "path---tags-how-to-b6298119056a6fc4a16a.js.map"
+      "path---tags-how-to-3236a83a6c55416d8ddd.js",
+      "path---tags-how-to-3236a83a6c55416d8ddd.js.map"
     ],
     "path---404": [
       "path---404-a0e39f21c11f6a62c5ab.js",

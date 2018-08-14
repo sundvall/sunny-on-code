@@ -1,2 +1,0 @@
-webpackJsonp([50056417302253],{348:function(e,t){e.exports={pathContext:{posts:[{html:"<h1>Here's a headline</h1>\n<p>Lennon ipsum yoko ringo</p>",id:"/Users/martinsundvall/Documents/private/sunny-on-code/src/pages/2017-12-31-slacking-on-my-blog/index.md absPath of file >>> MarkdownRemark",frontmatter:{date:"2017-12-31",path:"/stick-with-it",title:"New Year's Eve",excerpt:"Trying to write can be hard.",tags:["winter","snow","react"]}}],tagName:"winter"}}}});
-//# sourceMappingURL=path---tags-winter-945bd32f0956754653b8.js.map

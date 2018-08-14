@@ -1,2 +1,2 @@
-webpackJsonp([51542300239371],{561:function(e,t){e.exports={pathContext:{posts:[{frontmatter:{tags:["flexbox","graphql","gatsby","tools","test-tag"],title:"This new webpage",date:"April 08, 2018",excerpt:"The equipment for this site."},fields:{slug:"/new-webpage/"}}],tagName:"flexbox"}}}});
+webpackJsonp([51542300239371],{485:function(e,t){e.exports={pathContext:{posts:[{frontmatter:{tags:["flexbox","graphql","gatsby","tools","test-tag"],title:"This new webpage",date:"April 08, 2018",excerpt:"The equipment for this site."},fields:{slug:"/new-webpage/"}}],tagName:"flexbox"}}}});
 //# sourceMappingURL=path---tags-flexbox-70720e4cff550b8ee5ad.js.map

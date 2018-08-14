@@ -1,0 +1,2 @@
+webpackJsonp([0x922b529aa37a],{480:function(t,e){t.exports={pathContext:{posts:[{frontmatter:{tags:["how-to","eslint","atom","tools","test-tag"],title:"Lint and format for Atom",date:"August 14, 2018",excerpt:"Code formatting combined with lint-rules in atom works fine, but appear to require a new setup for each project. Here is how it is done."},fields:{slug:"/eslint-prettier-for-atom/"}}],tagName:"atom"}}}});
+//# sourceMappingURL=path---tags-atom-cab85fb6b8b56a2d9031.js.map

@@ -1,2 +1,2 @@
-webpackJsonp([0x673624a8e27a],{560:function(t,e){t.exports={pathContext:{posts:[{frontmatter:{tags:["yarn","npm","changes","eternity","test-tag"],title:"Yarn cheat sheet",date:"April 06, 2018",excerpt:"I previously wrote 'npm install --save ...'. What do I do now?"},fields:{slug:"/npm-translate-yarn/"}}],tagName:"eternity"}}}});
+webpackJsonp([0x673624a8e27a],{484:function(t,e){t.exports={pathContext:{posts:[{frontmatter:{tags:["yarn","npm","changes","eternity","test-tag"],title:"Yarn cheat sheet",date:"April 06, 2018",excerpt:"I previously wrote 'npm install --save ...'. What do I do now?"},fields:{slug:"/npm-translate-yarn/"}}],tagName:"eternity"}}}});
 //# sourceMappingURL=path---tags-eternity-d86652804b967aac02a1.js.map
