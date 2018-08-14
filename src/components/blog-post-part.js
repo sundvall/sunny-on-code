@@ -90,13 +90,15 @@ const BlogPostPart = ({
 	// const { data, location, pathContext } = p;
 	// const post = data.markdownRemark;
 	// const { tagLinkPrefix} = pathContext;
-	const togos = tags.map(tag => {
-		return (
-			<li key={tag}>
-				<Link to={`/${tagLinkPrefix}/${tag}`}>{tag}</Link>
-			</li>
-		);
-	});
+	const togos =
+		tags &&
+		tags.map(tag => {
+			return (
+				<li key={tag}>
+					<Link to={`/${tagLinkPrefix}/${tag}`}>{tag}</Link>
+				</li>
+			);
+		});
 	/* eslint-disable react/no-danger*/
 	return (
 		<Content>
