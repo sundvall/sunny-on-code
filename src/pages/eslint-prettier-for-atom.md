@@ -81,7 +81,8 @@ In the "settings" section, checkmark "Ignore Files in .eslintignore". Might be t
 ...and probably adjust "Tab Width" to for example 4.
 Also evaluate the possibility to switch order of running eslint before prettier.
 ## Keybinding
-Now, the best feature: Enable keybinding to the command 'prettier:format' with selector 'atom-text-editor' and then all spaghetti will be straight again, automatically and in harmony with lint-rules.
+Now, the best feature: Enable keybinding to the command 'prettier:format' with selector 'atom-text-editor' and then all spaghetti will be straight again, automatically and in harmony with lint-rules. But - make sure the shortkey only run ONE and only ONE formatting plugin.  
+(The most recent headache was derived from conflicting shortkeys. The prettier-atom plugin formatted all code, and the eslint-plugin-prettier dev-dependency applied fixes according to eslint settings but thereafter an old connection to another formatter also run, and ruined the result. Tip: check the keybindings in atom to confirm that only one formatter is run.)
 
 ### errors: 'Error while running ESLint: Cannot find module ...
 Was any of the packages not installed? Check the setup in "".eslintrc" for the project so that it matches 'package.json'. Especially the properties "plugins" and "extends".
@@ -144,7 +145,7 @@ That will require some of these in "package.json":
      }
  }
  ```
- The most recent headache was derived from conflicting shortkeys. The prettier-atom plugin formatted all code, and the eslint-plugin-prettier dev-dependency applied fixes according to eslint settings but thereafter an old connection to another formatter also run, and ruined the result. Tip: check the keybindings in atom to confirm that only one formatter is run.
+
  https://github.com/babel/babel-eslint
  ###reload modules
  Atom shortcut ctrl+cmd+alt+L
