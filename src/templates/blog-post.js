@@ -89,13 +89,16 @@ export default p => {
 		// { name: 'tags', link: `/${tagLinkPrefix}` },
 		{ name: post.frontmatter.title, link: location.pathname }
 	];
-	const tags = post.frontmatter.tags.map(tag => {
-		return (
-			<li key={tag}>
-				<Link to={`/${tagLinkPrefix}/${tag}`}>{tag}</Link>
-			</li>
-		);
-	});
+	const hasTags = post && post.frontmatter && post.frontmatter.tags;
+	const tags =
+		hasTags &&
+		post.frontmatter.tags.map(tag => {
+			return (
+				<li key={tag}>
+					<Link to={`/${tagLinkPrefix}/${tag}`}>{tag}</Link>
+				</li>
+			);
+		});
 	/* eslint-disable react/no-danger*/
 	return (
 		<div>
