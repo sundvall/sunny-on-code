@@ -1,5 +1,5 @@
 ---
-date: "2018-04-06T12:19:24.165Z"
+date: "2018-08-14T12:19:24.165Z"
 title: "Lint and format for Atom"
 tags: ['how-to', 'eslint', 'atom', 'tools', 'test-tag']
 excerpt: "Code formatting combined with lint-rules in atom works fine, but appear to require a new setup for each project. Here is how it is done."
@@ -144,6 +144,7 @@ That will require some of these in "package.json":
      }
  }
  ```
+ The most recent headache was derived from conflicting shortkeys. The prettier-atom plugin formatted all code, and the eslint-plugin-prettier dev-dependency applied fixes according to eslint settings but thereafter an old connection to another formatter also run, and ruined the result. Tip: check the keybindings in atom to confirm that only one formatter is run.
  https://github.com/babel/babel-eslint
  ###reload modules
  Atom shortcut ctrl+cmd+alt+L
