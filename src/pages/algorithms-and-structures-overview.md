@@ -1,4 +1,4 @@
-https://github.com/trekhleb/javascript-algorithms#readme---
+---
 date: "2018-05-28T06:55:11.165Z"
 title: "Common structures and algorithms overview"
 tags: ['programming', 'computing', 'algorithms', 'performance']
