@@ -1,8 +1,8 @@
 /* eslint-disable import/extensions */
 import React from 'react';
-// import Link from 'gatsby-link';
 import styled, { css } from 'styled-components';
 import { Flex, Box } from 'grid-styled';
+import { graphql } from 'gatsby';
 /* eslint-enable import/extensions*/
 import PageHead from '../components/page-head.js';
 import NavBar from '../components/nav-bar.js';
@@ -14,7 +14,8 @@ import {
 	/* LIGHT, DARK, MIDLIGHT, */
 	MID,
 	MIDDARK
-} from '../layouts/colors.js';
+} from '../components/colors.js';
+import Layout from '../components/layout.js';
 
 const SocmediaStyled = styled(Socmedia)`
 	position: absolute;
@@ -181,7 +182,7 @@ const About = ({ background, navBarId }) => (
 	</Section>
 );
 
-const IndexPage = ({ data }) => {
+const IndexPage = ({ data, location }) => {
 	const { edges: posts } = data.allMarkdownRemark;
 	const links = [
 		{ title: 'posts', href: '#posts' },
@@ -190,54 +191,60 @@ const IndexPage = ({ data }) => {
 		{ title: 'contact', href: '#contact' }
 	];
 	return (
-		<div>
-			<NavBar main links={links} />
-			<Content>
-				<TopBackgroundWrapper overlay fillPage>
-					<SocmediaStyled
-						icons={[
-							{
-								name: 'github-alt',
-								href: 'https://github.com/sundvall/'
-							},
-							{
-								name: 'linkedin',
-								href:
-									'https://www.linkedin.com/in/martinsundvall'
-							}
-						]}
+		<Layout location={location}>
+			<div>
+				<NavBar main links={links} />
+				<Content>
+					<TopBackgroundWrapper overlay fillPage>
+						<SocmediaStyled
+							icons={[
+								{
+									name: 'github-alt',
+									href: 'https://github.com/sundvall/'
+								},
+								{
+									name: 'linkedin',
+									href:
+										'https://www.linkedin.com/in/martinsundvall'
+								}
+							]}
+						/>
+					</TopBackgroundWrapper>
+					<PageHead
+						navBarId="posts"
+						title="INDEX OF POSTS"
+						crumbs={[{ name: 'home', link: '/' }]}
 					/>
-				</TopBackgroundWrapper>
-				<PageHead
-					navBarId="posts"
-					title="INDEX OF POSTS"
-					crumbs={[{ name: 'home', link: '/' }]}
-				/>
-				{posts.map(({ node: post }) => {
-					const { frontmatter, timeToRead, fields: { slug } } = post;
-					const { date, title, excerpt, tags } = frontmatter;
-					return (
-						<div key={post.id}>
-							<BlogPostPart
-								title={title}
-								slug={slug}
-								date={date}
-								excerpt={excerpt}
-								tags={tags}
-								timeToRead={timeToRead}
-							/>
-						</div>
-					);
-				})}
-				<About background={MIDDARK.hex} navBarId="about" />
-				<Contact background={MID.hex} navBarId="contact" />
-			</Content>
-		</div>
+					{posts.map(({ node: post }) => {
+						const {
+							frontmatter,
+							timeToRead,
+							fields: { slug }
+						} = post;
+						const { date, title, excerpt, tags } = frontmatter;
+						return (
+							<div key={post.id}>
+								<BlogPostPart
+									title={title}
+									slug={slug}
+									date={date}
+									excerpt={excerpt}
+									tags={tags}
+									timeToRead={timeToRead}
+								/>
+							</div>
+						);
+					})}
+					<About background={MIDDARK.hex} navBarId="about" />
+					<Contact background={MID.hex} navBarId="contact" />
+				</Content>
+			</div>
+		</Layout>
 	);
 };
 
 export const query = graphql`
-	query IndexQuery {
+	{
 		allMarkdownRemark {
 			totalCount
 			edges {

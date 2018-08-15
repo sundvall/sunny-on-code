@@ -6,7 +6,7 @@ import {
 	/* MIDLIGHT,*/
 	MID,
 	/* MIDDARK, DARK, */ LIGHT
-} from '../layouts/colors.js';
+} from './colors.js';
 
 const Base = styled.a`
 	color: ${MID.hex};

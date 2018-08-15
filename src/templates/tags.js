@@ -1,19 +1,19 @@
 /* eslint-disable import/extensions*/
 import React from 'react';
-import Link from 'gatsby-link';
+import { Link } from 'gatsby';
 import TimeAgo from 'react-timeago';
 /* eslint-enable import/extensions*/
 import PageHead from '../components/page-head.js';
 /* gatsby-node.js creates the parameters to this template.
 The argument object consists of common properties sent
 to all templates, but unique for this template is the
-'pathContext' that mirrors the 'context' object in the
+'pageContext' that mirrors the 'context' object in the
 calling function:
 context: {
 	posts : array of nodes
 	tagName : string
 }
-pathContext:{
+pageContext:{
 	posts: [node1, node2, ..., nodeN],
 	tagName: string
 }
@@ -33,10 +33,8 @@ available from the argument object: "location.pathname"
 --
 */
 const Tags = p => {
-	const { pathContext } = p;
-	// console.log('tags.js - creating pages for each tag');
-	// console.log('tags:', p);
-	const { posts, tagName } = pathContext;
+	const { pageContext } = p;
+	const { posts, tagName } = pageContext;
 
 	if (!posts) {
 		throw new Error('tags: no posts: 54');

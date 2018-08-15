@@ -2,8 +2,8 @@
 const path = require(`path`);
 const { createFilePath } = require(`gatsby-source-filesystem`);
 
-exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
-	const { createNodeField } = boundActionCreators;
+exports.onCreateNode = ({ node, getNode, actions }) => {
+	const { createNodeField } = actions;
 	if (node.internal.type === `MarkdownRemark`) {
 		const slug = createFilePath({ node, getNode, basePath: `pages` });
 		createNodeField({
@@ -36,7 +36,7 @@ function sortNodesPerTag(createPage, posts) {
 /*
 This is the fetch of data from 'posts/*.md'. All information
 extracted here is passed to the first creation of pages.
-The 'boundActionCreators' includes redux-actions used to control
+The 'actions' includes redux-actions used to control
 the creation.
 { deletePage: [Function],
   createPage: [Function],
@@ -60,8 +60,8 @@ the creation.
   like "{ data: { allMarkdownRemark: { edges: [Array] } } } "
   Test the query and response in GraphiQL.
 */
-exports.createPages = ({ graphql, boundActionCreators }) => {
-	const { createPage } = boundActionCreators;
+exports.createPages = ({ graphql, actions }) => {
+	const { createPage } = actions;
 	return new Promise((resolve /* , reject */) => {
 		graphql(`
 			{

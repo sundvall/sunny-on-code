@@ -1,7 +1,7 @@
 /* eslint-disable import/extensions*/
 import React from 'react';
 import styled from 'styled-components';
-import Link from 'gatsby-link';
+import { Link } from 'gatsby';
 import TimeAgo from 'react-timeago';
 // import { Flex, Box } from 'grid-styled';
 /* eslint-enable import/extensions*/
@@ -10,7 +10,7 @@ import TimeAgo from 'react-timeago';
 import Bar from '../components/bar.js';
 // import {
 // 	/* LIGHT, MIDLIGHT, MID,*/ MIDDARK /* ,DARK */
-// } from '../layouts/colors.js';
+// } from './colors.js';
 
 // const Header = styled.div`
 // 	height: fit-contents;
@@ -86,10 +86,6 @@ const BlogPostPart = ({
 	timeToRead,
 	tagLinkPrefix = 'tags'
 }) => {
-	// console.log('blog-post:p', p);
-	// const { data, location, pathContext } = p;
-	// const post = data.markdownRemark;
-	// const { tagLinkPrefix} = pathContext;
 	const togos =
 		tags &&
 		tags.map(tag => {

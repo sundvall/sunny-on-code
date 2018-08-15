@@ -1,30 +1,11 @@
 /* eslint-disable import/extensions*/
 import React from 'react';
 import styled from 'styled-components';
-import Link from 'gatsby-link';
+import { graphql, Link } from 'gatsby';
 import TimeAgo from 'react-timeago';
-// import { Flex, Box } from 'grid-styled';
 /* eslint-enable import/extensions*/
-// import Breadcrumb from '../components/breadcrumb.js';
 import PageHead from '../components/page-head.js';
 import Bar from '../components/bar.js';
-// import {
-// 	/* LIGHT, MIDLIGHT, MID,*/ MIDDARK /* ,DARK */
-// } from '../layouts/colors.js';
-
-// const Header = styled.div`
-// 	height: fit-contents;
-// 	padding: 0;
-// 	background: ${MIDDARK.hex};
-// 	position: relative;
-// 	overflow: hidden;
-//
-// 	& > div {
-// 		padding-top: 120px;
-// 		margin: auto;
-// 		max-width: 600px;
-// 	}
-// `;
 
 const Tags = styled.ol`
 	float: right;
@@ -56,12 +37,6 @@ const Content = styled.div`
 	}
 `;
 
-// const Title = styled.h1`
-// 	margin-top: 0;
-// 	text-transform: capitalize;
-// 	color: #fff;
-// `;
-
 const Timestamp = styled.i`
 	float: left;
 `;
@@ -78,15 +53,11 @@ The active console is here the browser. The parameters
 sent to this function is found in gatsby-node.js.
  */
 export default p => {
-	console.log('blog-post:p', p);
-	const { data, location, pathContext } = p;
+	const { data, location, pageContext } = p;
 	const post = data.markdownRemark;
-	const { tagLinkPrefix, next, previous } = pathContext;
+	const { tagLinkPrefix, next, previous } = pageContext;
 	const crumbs = [
 		{ name: 'home', link: '/' },
-		// { name: 'other', link: '/#posts' },
-		// { name: 'about', link: '/about' },
-		// { name: 'tags', link: `/${tagLinkPrefix}` },
 		{ name: post.frontmatter.title, link: location.pathname }
 	];
 	const hasTags = post && post.frontmatter && post.frontmatter.tags;
@@ -124,11 +95,8 @@ export default p => {
 };
 /* eslint-enable react/no-danger*/
 
-// <Timestamp>
-//     Posted: <TimeAgo date={post.frontmatter.date} />
-// </Timestamp>
 export const query = graphql`
-	query BlogPostQuery($slug: String!) {
+	query($slug: String!) {
 		markdownRemark(fields: { slug: { eq: $slug } }) {
 			html
 			timeToRead

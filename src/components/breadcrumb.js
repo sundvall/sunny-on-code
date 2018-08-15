@@ -1,7 +1,7 @@
 /* eslint-disable import/extensions*/
 import React from 'react';
 import styled, { css } from 'styled-components';
-import Link from 'gatsby-link';
+import { Link } from 'gatsby';
 /* eslint-enable import/extensions*/
 
 const Base = styled.ol`

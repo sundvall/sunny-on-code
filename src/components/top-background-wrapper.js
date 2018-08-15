@@ -1,7 +1,7 @@
 /* eslint-disable import/extensions */
 import styled, { css } from 'styled-components';
 /* eslint-enable import/extensions*/
-import { DARK } from '../layouts/colors.js';
+import { DARK } from './colors.js';
 
 const TopBackgroundWrapper = styled.div`
   position: relative;

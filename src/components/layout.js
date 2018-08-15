@@ -1,6 +1,5 @@
 /* eslint-disable import/extensions*/
 import React from 'react';
-// import Link from 'gatsby-link';
 import Helmet from 'react-helmet';
 import styled, { injectGlobal } from 'styled-components';
 /* eslint-enable import/extensions*/
@@ -62,7 +61,7 @@ const TemplateWrapper = ({ location, children }) => {
 					}
 				]}
 			/>
-			<Content>{children()}</Content>
+			<Content>{children}</Content>
 			{location.pathname !== '/404' && <Footer />}
 		</WrapAll>
 	);

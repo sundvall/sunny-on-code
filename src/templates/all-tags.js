@@ -1,6 +1,6 @@
 /* eslint-disable import/extensions*/
 import React from 'react';
-import Link from 'gatsby-link';
+import { Link } from 'gatsby';
 /* eslint-enable import/extensions*/
 import PageHead from '../components/page-head.js';
 
@@ -9,8 +9,8 @@ import PageHead from '../components/page-head.js';
 och länkar till dessa. Det förutsätter att gatsby-node.js
 har byggt sidor för länkarna.
 */
-const AllTags = ({ pathContext }) => {
-	const { tags } = pathContext;
+const AllTags = ({ pageContext }) => {
+	const { tags } = pageContext;
 
 	if (!tags) return null;
 	return (

@@ -6,7 +6,7 @@ import scrollToElement from 'scroll-to-element';
 /* eslint-enable import/extensions*/
 
 import Name from './owner.js';
-import { LIGHT, DARK } from '../layouts/colors.js';
+import { LIGHT, DARK } from './colors.js';
 
 import sizeadapation from '../utils/sizeadaptation.js';
 

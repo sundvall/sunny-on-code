@@ -1,15 +1,12 @@
 /* eslint-disable import/extensions*/
 import React from 'react';
 import styled from 'styled-components';
-// import Link from 'gatsby-link';
 // import TimeAgo from 'react-timeago';
 import { Flex, Box } from 'grid-styled';
 /* eslint-enable import/extensions*/
 import Breadcrumb from '../components/breadcrumb.js';
 // import Bar from '../components/bar.js';
-import {
-	/* LIGHT, MIDLIGHT, MID,*/ MIDDARK /* ,DARK */
-} from '../layouts/colors.js';
+import { /* LIGHT, MIDLIGHT, MID,*/ MIDDARK /* ,DARK */ } from './colors.js';
 
 const Header = styled.div`
 	height: fit-contents;
